@@ -392,7 +392,7 @@ function CVBuilder() {
       <PaywallModal isOpen={isPaywallOpen} onClose={() => setIsPaywallOpen(false)} currentTier={subscriptionTier} />
       
       {/* Mobile Tab Switcher */}
-      <div className="md:hidden hide-on-print flex bg-slate-900 border-b border-white/10 p-2 gap-2 sticky top-0 z-50">
+      <div className="md:hidden no-print flex bg-slate-900 border-b border-white/10 p-2 gap-2 sticky top-0 z-50">
           <button 
             onClick={() => setActiveTab('edit')}
             className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'edit' ? 'bg-[#7DF9FF] text-black shadow-lg shadow-[#7DF9FF]/20' : 'text-slate-400 hover:text-white'}`}
@@ -674,7 +674,7 @@ function CVBuilder() {
       {activeTab === 'preview' && (
           <button 
             onClick={handleExport}
-            className="md:hidden hide-on-print fixed bottom-6 right-6 w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl z-[60] animate-bounce"
+            className="md:hidden no-print fixed bottom-6 right-6 w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl z-[60] animate-bounce"
           >
               <Download size={24} />
           </button>

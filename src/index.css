@@ -17,29 +17,31 @@
 }
 
 @media print {
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  
-  /* Hide the Edit/Preview buttons and any navigation bars */
-  .hide-on-print, 
+  /* Hide EVERY button and navigation element in the app */
   button, 
-  nav { 
-    display: none !important; 
+  nav, 
+  header,
+  .no-print,
+  .hide-on-print,
+  [class*="button"],
+  [class*="Button"],
+  [class*="nav"] {
+    display: none !important;
   }
 
-  /* Hide custom scrollbar elements */
+  /* Hide scrollbars */
   ::-webkit-scrollbar {
     display: none !important;
   }
 
-  /* Ensure the main container doesn't show background colors or shadows that aren't needed */
+  /* Force the body to be white and remove margins */
   body {
-    background: none !important;
+    background-color: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  /* Adjust the layout to take full width of the PDF page */
+  /* Adjust the resume container to take full width */
   .print-resume-container {
     width: 100% !important;
     margin: 0 !important;
