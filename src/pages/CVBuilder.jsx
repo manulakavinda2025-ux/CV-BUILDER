@@ -392,7 +392,7 @@ function CVBuilder() {
       <PaywallModal isOpen={isPaywallOpen} onClose={() => setIsPaywallOpen(false)} currentTier={subscriptionTier} />
       
       {/* Mobile Tab Switcher */}
-      <div className="md:hidden print:hidden flex bg-slate-900 border-b border-white/10 p-2 gap-2 sticky top-0 z-50">
+      <div className="md:hidden hide-on-print flex bg-slate-900 border-b border-white/10 p-2 gap-2 sticky top-0 z-50">
           <button 
             onClick={() => setActiveTab('edit')}
             className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'edit' ? 'bg-[#7DF9FF] text-black shadow-lg shadow-[#7DF9FF]/20' : 'text-slate-400 hover:text-white'}`}
@@ -661,9 +661,9 @@ function CVBuilder() {
       </aside>
 
       {/* --- RIGHT PANE: LIVE PREVIEW --- */}
-      <main className={`${activeTab === 'preview' ? 'flex' : 'hidden'} md:flex flex-1 h-full bg-slate-200 overflow-y-auto p-4 sm:p-8 justify-center items-start print:block print:p-0 print:bg-white`}>
+      <main className={`${activeTab === 'preview' ? 'flex' : 'hidden'} md:flex flex-1 h-full bg-slate-200 overflow-y-auto p-4 sm:p-8 justify-center items-start print:block print:p-0 print:bg-white print:overflow-visible`}>
         {/* The A4 Document Container */}
-        <div className="w-full max-w-[800px] bg-white shadow-2xl origin-top transition-all duration-300 print:shadow-none print:max-w-none print:w-[210mm] print:min-h-[297mm] overflow-x-auto">
+        <div className="print-resume-container w-full max-w-[800px] bg-white shadow-2xl origin-top transition-all duration-300 print:shadow-none print:max-w-none print:w-[210mm] print:min-h-[297mm] overflow-x-auto print:overflow-visible">
             <div className="min-w-[600px] md:min-w-0">
                 <ClassicDocument data={cvState} theme={theme} />
             </div>
@@ -674,7 +674,7 @@ function CVBuilder() {
       {activeTab === 'preview' && (
           <button 
             onClick={handleExport}
-            className="md:hidden print:hidden fixed bottom-6 right-6 w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl z-[60] animate-bounce"
+            className="md:hidden hide-on-print fixed bottom-6 right-6 w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl z-[60] animate-bounce"
           >
               <Download size={24} />
           </button>

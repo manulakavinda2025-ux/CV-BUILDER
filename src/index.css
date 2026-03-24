@@ -21,4 +21,29 @@
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
+  
+  /* Hide the Edit/Preview buttons and any navigation bars */
+  .hide-on-print, 
+  button, 
+  nav { 
+    display: none !important; 
+  }
+
+  /* Hide custom scrollbar elements */
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Ensure the main container doesn't show background colors or shadows that aren't needed */
+  body {
+    background: none !important;
+  }
+
+  /* Adjust the layout to take full width of the PDF page */
+  .print-resume-container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
 }
