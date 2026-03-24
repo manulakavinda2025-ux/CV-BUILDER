@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSy...", // ඔයාගේ පරණ ප්‍රොජෙක්ට් එකේ API Key එක මෙතනට දාන්න
@@ -13,3 +13,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
+
+export const loginWithGoogle = () => {
+  return signInWithPopup(auth, googleProvider);
+};
+
+export const logoutUser = () => {
+  return signOut(auth);
+};
