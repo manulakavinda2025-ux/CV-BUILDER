@@ -1,0 +1,71 @@
+{
+  "name": "Alex Mercer",
+  "contact": {
+    "email": "alex.mercer@email.com",
+    "phone": "+1 (555) 123-4567",
+    "location": "San Francisco, CA",
+    "linkedin": "linkedin.com/in/alexmercer-dev",
+    "portfolio": "github.com/alexmercer"
+  },
+  "summary": "Results-driven Senior Software Engineer with over 7 years of experience in designing, developing, and deploying scalable web applications. Recognized for leadership in optimizing backend systems, reducing cloud infrastructure costs, and driving agile methodologies. Passionate about writing clean, maintainable code and mentoring junior developers to build high-performing engineering teams.",
+  "skills": [
+    "Programming Languages: JavaScript, TypeScript, Python, Go",
+    "Frontend Frameworks: React.js, Next.js, Redux, Tailwind CSS",
+    "Backend Technologies: Node.js, Express, Django, GraphQL, REST API",
+    "Databases: PostgreSQL, MongoDB, Redis",
+    "DevOps & Cloud: AWS (EC2, S3, Lambda), Docker, Kubernetes, CI/CD (GitHub Actions)",
+    "Soft Skills: Technical Leadership, Agile Development, Cross-functional Collaboration, Mentorship"
+  ],
+  "experience": [
+    {
+      "company": "TechNova Solutions",
+      "role": "Senior Software Engineer",
+      "startDate": "Jan 2021",
+      "endDate": "Present",
+      "responsibilities": [
+        "Architected and developed a high-traffic microservices-based e-commerce platform using Node.js and React, supporting over 100,000 daily active users.",
+        "Optimized database queries in PostgreSQL, reducing average API response times by 35% and improving overall application performance.",
+        "Led a team of 5 engineers in migrating legacy monolithic architecture to AWS microservices, resulting in a 40% reduction in server costs.",
+        "Implemented automated CI/CD pipelines using GitHub Actions, decreasing deployment time from 2 hours to under 15 minutes.",
+        "Mentored 3 junior developers through regular pair programming and comprehensive code reviews."
+      ]
+    },
+    {
+      "company": "Innovatech Inc.",
+      "role": "Software Engineer",
+      "startDate": "Jun 2018",
+      "endDate": "Dec 2020",
+      "responsibilities": [
+        "Collaborated with product managers and designers to develop and launch 4 key features for the flagship SaaS product, directly contributing to a 20% increase in user retention.",
+        "Integrated third-party payment gateways (Stripe, PayPal) seamlessly, processing over $1M in monthly transactions with 99.9% uptime.",
+        "Wrote comprehensive unit and integration tests using Jest and Cypress, increasing code coverage to 85% and reducing post-release bugs by 25%.",
+        "Participated in daily stand-ups and bi-weekly sprint planning meetings in a fast-paced Agile environment."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of California, Berkeley",
+      "degree": "Bachelor of Science in Computer Science",
+      "startDate": "Sep 2014",
+      "endDate": "May 2018"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Solutions Architect – Associate",
+      "issuer": "Amazon Web Services (AWS)",
+      "date": "Aug 2022"
+    },
+    {
+      "name": "Certified Kubernetes Administrator (CKA)",
+      "issuer": "Cloud Native Computing Foundation",
+      "date": "Nov 2023"
+    }
+  ],
+  "achievements": [
+    "Awarded 'Employee of the Quarter' out of 200+ employees at TechNova Solutions for successfully leading the cloud migration project.",
+    "First-place winner in Innovatech's 2019 Internal Hackathon for developing an AI-driven automated code review tool.",
+    "Published a technical article on 'Scaling Node.js Microservices' on Medium, reaching over 10,000 views."
+  ]
+}
