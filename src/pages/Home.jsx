@@ -46,27 +46,50 @@ const Home = () => {
                     <div className="relative w-full aspect-square transform-style-3d hover:rotate-x-12 hover:-rotate-y-12 transition-transform duration-700 ease-out animate-float">
                         {/* Main 3D Card */}
                         <div className="absolute inset-4 glass-dark rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col p-6 z-10 translate-z-10 bg-gradient-to-br from-slate-800/80 to-slate-900/90">
-                            <div className="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
-                                <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                                    <span className="text-white font-bold text-xl">MK</span>
+                            <div className="flex items-center gap-3 mb-5 border-b border-white/5 pb-4">
+                                <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full flex flex-shrink-0 items-center justify-center shadow-lg border border-white/10">
+                                    <span className="text-white font-black text-xl tracking-wider">MK</span>
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-bold text-lg leading-tight">Manula Kavinda</h3>
-                                    <p className="text-cyan-400 text-sm">Senior Developer</p>
+                                    <h3 className="text-white font-bold text-lg leading-tight tracking-wide">Manula Kavinda</h3>
+                                    <p className="text-cyan-400 text-sm font-medium">Senior Software Engineer</p>
                                 </div>
                             </div>
+                            
+                            {/* Mock Summary */}
                             <div className="space-y-4 flex-1">
-                                <div className="h-3 w-3/4 bg-slate-700/50 rounded-full"></div>
-                                <div className="h-3 w-full bg-slate-700/50 rounded-full"></div>
-                                <div className="h-3 w-5/6 bg-slate-700/50 rounded-full"></div>
-                                <div className="mt-6 space-y-3">
-                                    <div className="flex gap-3 items-center">
-                                         <div className="w-8 h-8 rounded bg-blue-500/20 flex items-center justify-center"><Layers size={14} className="text-blue-400"/></div>
-                                         <div className="h-2 w-1/2 bg-slate-700/50 rounded-full"></div>
+                                <p className="text-xs text-slate-400 leading-relaxed font-light">
+                                    Architecting high-performance web applications and AI-driven platforms. Passionate about beautiful UI and scalable backend systems.
+                                </p>
+                                
+                                {/* Mock Skills */}
+                                <div className="flex flex-wrap gap-2 pt-1">
+                                    <span className="px-2 py-1 text-[10px] uppercase font-bold tracking-wider text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 rounded-md">React.js</span>
+                                    <span className="px-2 py-1 text-[10px] uppercase font-bold tracking-wider text-blue-300 bg-blue-500/10 border border-blue-500/20 rounded-md">Node.js</span>
+                                    <span className="px-2 py-1 text-[10px] uppercase font-bold tracking-wider text-indigo-300 bg-indigo-500/10 border border-indigo-500/20 rounded-md">AI Integration</span>
+                                    <span className="px-2 py-1 text-[10px] uppercase font-bold tracking-wider text-purple-300 bg-purple-500/10 border border-purple-500/20 rounded-md">Tailwind</span>
+                                </div>
+
+                                {/* Mock Experience Timeline */}
+                                <div className="mt-5 space-y-4 relative before:absolute before:inset-0 before:ml-[11px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+                                    <div className="relative flex items-start justify-between gap-3 group">
+                                         <div className="w-6 h-6 rounded-full bg-slate-900 border-2 border-cyan-500 flex items-center justify-center z-10 shrink-0 mt-0.5 shadow-[0_0_10px_rgba(34,211,238,0.4)]">
+                                             <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                                         </div>
+                                         <div className="flex-1">
+                                             <h4 className="text-sm font-bold text-slate-200">Tech Lead</h4>
+                                             <p className="text-[10px] text-cyan-500/80 mb-1">2023 - Present</p>
+                                             <div className="h-2 w-3/4 bg-slate-700/50 rounded-full"></div>
+                                         </div>
                                     </div>
-                                    <div className="flex gap-3 items-center">
-                                         <div className="w-8 h-8 rounded bg-indigo-500/20 flex items-center justify-center"><Cpu size={14} className="text-indigo-400"/></div>
-                                         <div className="h-2 w-2/3 bg-slate-700/50 rounded-full"></div>
+                                    <div className="relative flex items-start justify-between gap-3 group">
+                                         <div className="w-6 h-6 rounded-full bg-slate-900 border-2 border-blue-500/50 flex items-center justify-center z-10 shrink-0 mt-0.5"></div>
+                                         <div className="flex-1">
+                                             <h4 className="text-sm font-bold text-slate-300">Frontend Engineer</h4>
+                                             <p className="text-[10px] text-slate-500 mb-1">2020 - 2023</p>
+                                             <div className="h-2 w-1/2 bg-slate-700/50 rounded-full mb-1"></div>
+                                             <div className="h-2 w-2/3 bg-slate-700/50 rounded-full"></div>
+                                         </div>
                                     </div>
                                 </div>
                             </div>
