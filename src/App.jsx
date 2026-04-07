@@ -4,9 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import CVBuilder from './pages/CVBuilder';
 import Templates from './pages/Templates';
-import Pricing from './pages/Pricing';
 import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
 
 function App() {
   return (
@@ -17,9 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/builder" element={<CVBuilder />} />
           <Route path="/templates" element={<Templates />} />
-          <Route path="/pricing" element={<Pricing />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
     </div>

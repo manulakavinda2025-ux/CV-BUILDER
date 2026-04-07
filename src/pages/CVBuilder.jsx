@@ -66,52 +66,7 @@ const InputGroup = ({ label, children }) => (
     </div>
 );
 
-// --- Paywall Modal Component ---
-const PaywallModal = ({ isOpen, onClose, currentTier }) => {
-    const navigate = useNavigate();
-    if (!isOpen) return null;
-    
-    // Determine messaging based on tier
-    const isBasic = currentTier === 'Basic';
-    const title = isBasic ? "Upgrade to Pro" : "Upgrade Your Plan";
-    const desc = isBasic 
-        ? "You've reached your 5 CV limit on the Basic plan. Upgrade to Pro for unlimited CVs!"
-        : "You've used your 1 free CV export. Upgrade to a premium plan to create more!";
-
-    return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-in fade-in zoom-in duration-200">
-                <button onClick={onClose} className="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
-                    ✕
-                </button>
-                <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg shadow-orange-500/30">
-                        <Crown className="text-white relative z-10" size={32} />
-                    </div>
-                </div>
-                <h2 className="text-2xl font-bold text-center text-slate-800 mb-2">{title}</h2>
-                <p className="text-slate-600 text-center mb-8">{desc}</p>
-                
-                <div className="space-y-4 mb-8">
-                    <div className="flex items-center gap-3">
-                        <CheckCircle className="text-emerald-500" size={20} /> <span className="text-slate-700 font-medium">{isBasic ? "Unlimited CV Exports" : "Create up to 5 CVs"}</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                        <CheckCircle className="text-emerald-500" size={20} /> <span className="text-slate-700 font-medium">Full AI Rewrite Access</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                        <CheckCircle className="text-emerald-500" size={20} /> <span className="text-slate-700 font-medium">Premium Color Themes</span>
-                    </div>
-                </div>
-
-                <button onClick={() => navigate('/pricing')} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-                    <Sparkles size={18} /> View Pricing Plans
-                </button>
-                <p className="text-center text-xs text-slate-400 mt-4">Upgrade safely and securely.</p>
-            </div>
-        </div>
-    );
-};
+// --- Classic Document Component ---
 
 const ClassicDocument = ({ data, theme }) => (
     <div className="flex flex-col sm:flex-row min-h-full w-full bg-white text-slate-800 print:w-[210mm] print:h-[297mm] print:min-h-[297mm] print:overflow-hidden print:shadow-none print:m-0 print:p-0">
@@ -300,23 +255,7 @@ function CVBuilder() {
   const [activeTheme, setActiveTheme] = useState('classicSidebar');
   const theme = THEMES[activeTheme];
 
-  const [isPaywallOpen, setIsPaywallOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('edit'); // 'edit' or 'preview'
-
-  useEffect(() => {
-    if (!loading && !user) {
-      navigate('/login');
-    }
-  }, [user, loading, navigate]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center text-white">
-        <div className="w-12 h-12 border-4 border-[#7DF9FF] border-t-transparent rounded-full animate-spin mb-4"></div>
-        <p className="text-slate-400 font-medium">Loading your CV workspace...</p>
-      </div>
-    );
-  }
 
   if (!user) return null;
 
@@ -375,21 +314,12 @@ function CVBuilder() {
   };
 
   const handleExport = () => {
-      let isLimitReached = false;
-      if (subscriptionTier === 'Free' && cvCount >= 1) isLimitReached = true;
-      if (subscriptionTier === 'Basic' && cvCount >= 5) isLimitReached = true;
-      
-      if (isLimitReached) {
-          setIsPaywallOpen(true);
-      } else {
-          incrementCvCount();
-          window.print();
-      }
+      incrementCvCount();
+      window.print();
   };
 
   return (
     <div className="h-screen flex flex-col md:flex-row overflow-hidden selection:bg-blue-100 selection:text-blue-900 bg-slate-200 font-inter">
-      <PaywallModal isOpen={isPaywallOpen} onClose={() => setIsPaywallOpen(false)} currentTier={subscriptionTier} />
       
       {/* Mobile Tab Switcher */}
       <div className="md:hidden no-print flex bg-slate-900 border-b border-white/10 p-2 gap-2 sticky top-0 z-50">
@@ -417,7 +347,7 @@ function CVBuilder() {
                      <h2 className="text-xl font-bold tracking-tight">Smart AI CV Builder</h2>
                  </div>
                  <button className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium" onClick={handleExport}>
-                     <Download size={16} /> Export ({subscriptionTier})
+                     <Download size={16} /> Export CV
                  </button>
               </div>
           </div>
