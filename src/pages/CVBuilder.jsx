@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import cvData from '../cv.json';
-import { Mail, Phone, MapPin, Linkedin, Github, Briefcase, GraduationCap, Award, ExternalLink, Sparkles, Download, Edit2, Plus, Trash2, CheckCircle, Crown, Palette, List, FileText } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Briefcase, GraduationCap, Award, ExternalLink, Sparkles, Download, Edit2, Plus, Trash2, CheckCircle, Crown, Palette, List, FileText, Printer } from 'lucide-react';
+import html2pdf from 'html2pdf.js';
 // --- Theme Definitions ---
 const THEMES = {
   executive: {
@@ -313,9 +314,22 @@ function CVBuilder() {
       });
   };
 
-  const handleExport = () => {
-      incrementCvCount();
+  const handlePrint = () => {
+      if (incrementCvCount) incrementCvCount();
       window.print();
+  };
+
+  const handleDownloadPDF = () => {
+      if (incrementCvCount) incrementCvCount();
+      const element = document.querySelector('.print-resume-container');
+      const opt = {
+          margin:       0,
+          filename:     `${cvState.name || 'CV'}.pdf`,
+          image:        { type: 'jpeg', quality: 0.98 },
+          html2canvas:  { scale: 2 },
+          jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
   };
 
   return (
@@ -346,18 +360,28 @@ function CVBuilder() {
                      <div className="p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg shadow-inner"><Sparkles size={20} className="text-white" /></div>
                      <h2 className="text-xl font-bold tracking-tight">Smart AI CV Builder</h2>
                  </div>
-                 <button className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium" onClick={handleExport}>
-                     <Download size={16} /> Export CV
-                 </button>
+                 <div className="flex gap-2">
+                     <button className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium" onClick={handlePrint}>
+                         <Printer size={16} /> Print
+                     </button>
+                     <button className="p-2 bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium" onClick={handleDownloadPDF}>
+                         <Download size={16} /> Download
+                     </button>
+                 </div>
               </div>
           </div>
 
           <div className="p-4 sm:p-6 space-y-8 sm:space-y-10 flex-1">
              <div className="md:hidden flex items-center justify-between mb-4">
                  <h2 className="text-xl font-bold text-slate-800">CV Editor</h2>
-                 <button className="bg-slate-900 text-white px-4 py-2 rounded-lg flex items-center gap-2 text-xs font-bold shadow-lg" onClick={handleExport}>
-                     <Download size={14} /> EXPORT
-                 </button>
+                 <div className="flex gap-2">
+                     <button className="bg-slate-200 text-slate-800 px-3 py-2 rounded-lg flex items-center gap-1 text-xs font-bold shadow-sm" onClick={handlePrint}>
+                         <Printer size={14} /> Print
+                     </button>
+                     <button className="bg-slate-900 text-white px-3 py-2 rounded-lg flex items-center gap-1 text-xs font-bold shadow-lg" onClick={handleDownloadPDF}>
+                         <Download size={14} /> Download
+                     </button>
+                 </div>
              </div>
              
              {/* Theme Switcher Widget */}
@@ -600,14 +624,22 @@ function CVBuilder() {
         </div>
       </main>
 
-      {/* Floating Export Button for Mobile (Preview Tab Only) */}
+      {/* Floating Buttons for Mobile (Preview Tab Only) */}
       {activeTab === 'preview' && (
-          <button 
-            onClick={handleExport}
-            className="md:hidden no-print fixed bottom-6 right-6 w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl z-[60] animate-bounce"
-          >
-              <Download size={24} />
-          </button>
+          <div className="md:hidden no-print fixed bottom-6 right-6 flex flex-col gap-3 z-[60]">
+             <button 
+                onClick={handlePrint}
+                className="w-14 h-14 bg-white text-slate-900 border border-slate-200 rounded-full flex items-center justify-center shadow-lg transition-transform active:scale-95"
+              >
+                  <Printer size={24} />
+              </button>
+              <button 
+                onClick={handleDownloadPDF}
+                className="w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl animate-bounce"
+              >
+                  <Download size={24} />
+              </button>
+          </div>
       )}
     </div>
   );
