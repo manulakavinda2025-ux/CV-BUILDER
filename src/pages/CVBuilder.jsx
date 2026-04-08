@@ -4,11 +4,13 @@ import { useAuth } from '../context/AuthContext';
 import cvData from '../cv.json';
 import { Mail, Phone, MapPin, Linkedin, Github, Briefcase, GraduationCap, Award, ExternalLink, Sparkles, Download, Edit2, Plus, Trash2, CheckCircle, Crown, Palette, List, FileText, Printer } from 'lucide-react';
 import html2pdf from 'html2pdf.js';
+import { ModernMinimalDocument, CorporateDocument, DarkHeaderDocument, ElegantDocument } from '../components/ResumeTemplates';
 // --- Theme Definitions ---
 const THEMES = {
   executive: {
     id: 'executive',
     name: 'Executive Blue',
+    layout: 'classic',
     headerBg: 'from-slate-900 to-slate-800',
     primaryText: 'text-slate-900',
     accentText: 'text-slate-600',
@@ -19,6 +21,7 @@ const THEMES = {
   emerald: {
     id: 'emerald',
     name: 'Emerald Forest',
+    layout: 'classic',
     headerBg: 'from-emerald-950 to-teal-900',
     primaryText: 'text-emerald-900',
     accentText: 'text-emerald-700',
@@ -29,6 +32,7 @@ const THEMES = {
   midnight: {
     id: 'midnight',
     name: 'Midnight Purple',
+    layout: 'classic',
     headerBg: 'from-indigo-950 to-purple-900',
     primaryText: 'text-indigo-950',
     accentText: 'text-indigo-700',
@@ -39,6 +43,7 @@ const THEMES = {
   classicSidebar: {
     id: 'classicSidebar',
     name: 'Classic Sidebar',
+    layout: 'classic',
     headerBg: 'from-[#425974] to-[#425974]',
     primaryText: 'text-[#425974]',
     accentText: 'text-[#5a7698]',
@@ -49,12 +54,57 @@ const THEMES = {
   classicSidebarBurgundy: {
     id: 'classicSidebarBurgundy',
     name: 'Classic Burgundy',
+    layout: 'classic',
     headerBg: 'from-[#60202a] to-[#60202a]',
     primaryText: 'text-[#60202a]',
     accentText: 'text-[#8a2f3d]',
     accentBg: 'bg-[#782834]',
     accentLight: 'bg-[#782834]/10 text-[#782834]',
     borderLight: 'border-[#782834]/20'
+  },
+  modernMinimal: {
+    id: 'modernMinimal',
+    name: 'Modern Minimal',
+    layout: 'modernMinimal',
+    headerBg: 'from-[#e5e5e0] to-[#e5e5e0]',
+    primaryText: 'text-slate-800',
+    accentText: 'text-slate-600',
+    accentBg: 'bg-[#e5e5e0]',
+    accentLight: 'bg-slate-200 text-slate-800',
+    borderLight: 'border-slate-200'
+  },
+  corporate: {
+    id: 'corporate',
+    name: 'Corporate Clean',
+    layout: 'corporate',
+    headerBg: 'from-white to-white',
+    primaryText: 'text-[#1e3a8a]',
+    accentText: 'text-slate-700',
+    accentBg: 'bg-white',
+    accentLight: 'bg-[#e0f2fe] text-[#1e3a8a]',
+    borderLight: 'border-[#e0f2fe]'
+  },
+  darkHeader: {
+    id: 'darkHeader',
+    name: 'Dark Header',
+    layout: 'darkHeader',
+    headerBg: 'from-black to-black',
+    primaryText: 'text-black',
+    accentText: 'text-slate-700',
+    accentBg: 'bg-black',
+    accentLight: 'bg-slate-100 text-black',
+    borderLight: 'border-gray-300'
+  },
+  elegant: {
+    id: 'elegant',
+    name: 'Elegant Serif',
+    layout: 'elegant',
+    headerBg: 'from-white to-white',
+    primaryText: 'text-black',
+    accentText: 'text-[#b45309]',
+    accentBg: 'bg-white',
+    accentLight: 'bg-[#b45309]/10 text-[#b45309]',
+    borderLight: 'border-[#b45309]'
   }
 };
 
@@ -617,9 +667,13 @@ function CVBuilder() {
       {/* --- RIGHT PANE: LIVE PREVIEW --- */}
       <main className={`${activeTab === 'preview' ? 'flex' : 'hidden'} md:flex flex-1 h-full bg-slate-200 overflow-y-auto p-4 sm:p-8 justify-center items-start print:block print:p-0 print:bg-white print:overflow-visible`}>
         {/* The A4 Document Container */}
-        <div className="print-resume-container w-full max-w-[800px] bg-white shadow-2xl origin-top transition-all duration-300 print:shadow-none print:max-w-none print:w-[210mm] print:min-h-[297mm] overflow-x-auto print:overflow-visible">
-            <div className="min-w-[600px] md:min-w-0">
-                <ClassicDocument data={cvState} theme={theme} />
+        <div className="print-resume-container w-full max-w-[800px] shadow-2xl origin-top transition-all duration-300 print:shadow-none print:max-w-none print:w-[210mm] print:min-h-[297mm] overflow-x-auto print:overflow-visible">
+            <div className="min-w-[600px] md:min-w-0 shadow-[0_0_15px_rgba(0,0,0,0.1)] bg-white">
+                {theme.layout === 'modernMinimal' && <ModernMinimalDocument data={cvState} theme={theme} />}
+                {theme.layout === 'corporate' && <CorporateDocument data={cvState} theme={theme} />}
+                {theme.layout === 'darkHeader' && <DarkHeaderDocument data={cvState} theme={theme} />}
+                {theme.layout === 'elegant' && <ElegantDocument data={cvState} theme={theme} />}
+                {(!theme.layout || theme.layout === 'classic') && <ClassicDocument data={cvState} theme={theme} />}
             </div>
         </div>
       </main>

@@ -26,18 +26,44 @@ const Templates = () => {
             badge: 'Pro'
         },
         {
+            id: 'modernMinimal',
+            name: 'Modern Minimal',
+            description: 'A clean, centered design with grey accents. Perfect for clean and simple presentations.',
+            color: 'bg-[#e5e7eb]',
+            badge: 'New'
+        },
+        {
+            id: 'corporate',
+            name: 'Corporate Clean',
+            description: 'A crisp, two-column header with light blue section accents.',
+            color: 'bg-[#e0f2fe]',
+            badge: 'New'
+        },
+        {
+            id: 'darkHeader',
+            name: 'Dark Header',
+            description: 'A striking black header that commands attention.',
+            color: 'bg-[#1e293b]',
+            badge: 'New'
+        },
+        {
+            id: 'elegant',
+            name: 'Elegant Serif',
+            description: 'A refined sidebar design with elegant typography and gold accents.',
+            color: 'bg-[#b45309]',
+            badge: 'New'
+        },
+        {
             id: 'classicSidebar',
             name: 'Classic Sidebar',
             description: 'A traditional two-column layout with a deep blue sidebar and crisp white content area.',
-            color: 'bg-[#425974]',
-            badge: 'New'
+            color: 'bg-[#425974]'
         },
         {
             id: 'classicSidebarBurgundy',
             name: 'Classic Burgundy',
             description: 'An elegant variation of the classic layout featuring a sophisticated deep red sidebar.',
-            color: 'bg-[#782834]',
-            badge: 'New'
+            color: 'bg-[#782834]'
         }
     ];
 
