@@ -59,17 +59,17 @@ const Templates = () => {
                             <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiAvPgo8cGF0aCBkPSJNMCAwTDggOFpNOCAwTDAgOFoiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIxIi8+Cjwvc3ZnPg==')]"></div>
                             
                             {/* Abstract Template Preview */}
-                            <div className="w-3/4 h-full bg-white rounded-t-xl shadow-lg border border-slate-200 relative z-10 flex flex-col overflow-hidden transform group-hover:-translate-y-2 transition-transform duration-500">
-                                <div className={`h-12 w-full ${tpl.color} opacity-90`}></div>
+                            <div className="w-3/4 h-[90%] bg-white rounded-t shadow-lg border border-slate-200 relative z-10 flex flex-col overflow-hidden transform group-hover:-translate-y-2 transition-transform duration-500 mt-auto">
+                                <div className={`h-8 w-full ${tpl.color} opacity-90`}></div>
                                 <div className="p-3 space-y-2">
-                                    <div className="w-1/3 h-2 bg-slate-200 rounded"></div>
-                                    <div className="w-1/2 h-2 bg-slate-200 rounded"></div>
-                                    <div className="w-full h-12 bg-slate-50 border border-slate-100 rounded mt-4"></div>
+                                    <div className="w-1/2 h-1.5 bg-slate-200 rounded"></div>
+                                    <div className="w-1/3 h-1.5 bg-slate-200 rounded"></div>
+                                    <div className="w-full h-10 bg-slate-50 border border-slate-100 rounded mt-3"></div>
                                 </div>
                             </div>
                             
                             {tpl.badge && (
-                                <span className={`absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-full z-20 ${tpl.badge === 'Pro' ? 'bg-amber-100 text-amber-700' : 'bg-blue-100 text-blue-700'}`}>
+                                <span className={`absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-full z-20 shadow-sm ${tpl.badge === 'Pro' ? 'bg-amber-100 text-amber-700' : 'bg-blue-100 text-blue-700'}`}>
                                     {tpl.badge}
                                 </span>
                             )}
