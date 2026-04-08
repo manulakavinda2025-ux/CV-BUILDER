@@ -5,65 +5,39 @@ import { Check, ArrowRight } from 'lucide-react';
 const Templates = () => {
     const templates = [
         {
-            id: 'executive',
-            name: 'Executive Blue',
-            description: 'A clean, modern design with a commanding blue header. Perfect for corporate and leadership roles.',
-            color: 'bg-blue-600',
+            id: 'classicSidebar',
+            name: 'Classic Professional',
+            description: 'A traditional two-column layout with a deep blue sidebar and crisp white content area.',
+            color: 'bg-gradient-to-br from-[#425974] to-[#2c3e50]',
             badge: 'Popular'
-        },
-        {
-            id: 'emerald',
-            name: 'Emerald Forest',
-            description: 'Fresh and vibrant green accents that stand out while remaining professional. Great for creative and tech roles.',
-            color: 'bg-emerald-600',
-            badge: 'Pro'
-        },
-        {
-            id: 'midnight',
-            name: 'Midnight Purple',
-            description: 'A bold, striking dark purple theme that leaves a lasting impression. Ideal for design and marketing.',
-            color: 'bg-purple-600',
-            badge: 'Pro'
         },
         {
             id: 'modernMinimal',
             name: 'Modern Minimal',
             description: 'A clean, centered design with grey accents. Perfect for clean and simple presentations.',
-            color: 'bg-[#e5e7eb]',
+            color: 'bg-gradient-to-br from-slate-400 to-slate-500',
             badge: 'New'
         },
         {
             id: 'corporate',
             name: 'Corporate Clean',
             description: 'A crisp, two-column header with light blue section accents.',
-            color: 'bg-[#e0f2fe]',
+            color: 'bg-gradient-to-br from-[#1e3a8a] to-blue-800',
             badge: 'New'
         },
         {
             id: 'darkHeader',
             name: 'Dark Header',
             description: 'A striking black header that commands attention.',
-            color: 'bg-[#1e293b]',
+            color: 'bg-gradient-to-br from-black to-slate-900',
             badge: 'New'
         },
         {
             id: 'elegant',
             name: 'Elegant Serif',
             description: 'A refined sidebar design with elegant typography and gold accents.',
-            color: 'bg-[#b45309]',
+            color: 'bg-gradient-to-br from-[#b45309] to-amber-700',
             badge: 'New'
-        },
-        {
-            id: 'classicSidebar',
-            name: 'Classic Sidebar',
-            description: 'A traditional two-column layout with a deep blue sidebar and crisp white content area.',
-            color: 'bg-[#425974]'
-        },
-        {
-            id: 'classicSidebarBurgundy',
-            name: 'Classic Burgundy',
-            description: 'An elegant variation of the classic layout featuring a sophisticated deep red sidebar.',
-            color: 'bg-[#782834]'
         }
     ];
 
