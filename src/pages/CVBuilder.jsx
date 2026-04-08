@@ -1,66 +1,60 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import cvData from '../cv.json';
 import { Mail, Phone, MapPin, Linkedin, Github, Briefcase, GraduationCap, Award, ExternalLink, Sparkles, Download, Edit2, Plus, Trash2, CheckCircle, Crown, Palette, List, FileText, Printer } from 'lucide-react';
 import html2pdf from 'html2pdf.js';
 import { ModernMinimalDocument, CorporateDocument, DarkHeaderDocument, ElegantDocument } from '../components/ResumeTemplates';
-// --- Theme Definitions ---
 const THEMES = {
-    classicSidebar: {
-        id: 'classicSidebar',
-        name: 'Classic Pro',
-        layout: 'classic',
-        headerBg: 'from-[#425974] to-[#2c3e50]',
-        primaryText: 'text-[#425974]',
-        accentText: 'text-[#5a7698]',
-        accentBg: 'bg-[#4A5D71]',
-        accentLight: 'bg-[#4A5D71]/10 text-[#4A5D71]',
-        borderLight: 'border-[#4A5D71]/20'
+    blue: {
+        id: 'blue',
+        name: 'Professional Blue',
+        primaryText: 'text-blue-800',
+        accentText: 'text-blue-600',
+        accentBg: 'bg-blue-800',
+        accentLight: 'bg-blue-50 text-blue-800',
+        borderLight: 'border-blue-200',
+        borderDark: 'border-blue-800'
     },
-    modernMinimal: {
-        id: 'modernMinimal',
-        name: 'Modern Minimal',
-        layout: 'modernMinimal',
-        headerBg: 'from-slate-400 to-slate-500',
+    emerald: {
+        id: 'emerald',
+        name: 'Emerald Forest',
+        primaryText: 'text-emerald-800',
+        accentText: 'text-emerald-600',
+        accentBg: 'bg-emerald-800',
+        accentLight: 'bg-emerald-50 text-emerald-800',
+        borderLight: 'border-emerald-200',
+        borderDark: 'border-emerald-800'
+    },
+    purple: {
+        id: 'purple',
+        name: 'Midnight Purple',
+        primaryText: 'text-purple-800',
+        accentText: 'text-purple-600',
+        accentBg: 'bg-purple-800',
+        accentLight: 'bg-purple-50 text-purple-800',
+        borderLight: 'border-purple-200',
+        borderDark: 'border-purple-800'
+    },
+    slate: {
+        id: 'slate',
+        name: 'Corporate Slate',
         primaryText: 'text-slate-800',
         accentText: 'text-slate-600',
-        accentBg: 'bg-[#e5e5e0]',
-        accentLight: 'bg-slate-200 text-slate-800',
-        borderLight: 'border-slate-200'
+        accentBg: 'bg-slate-800',
+        accentLight: 'bg-slate-100 text-slate-800',
+        borderLight: 'border-slate-200',
+        borderDark: 'border-slate-800'
     },
-    corporate: {
-        id: 'corporate',
-        name: 'Corporate Clean',
-        layout: 'corporate',
-        headerBg: 'from-[#1e3a8a] to-blue-800',
-        primaryText: 'text-[#1e3a8a]',
-        accentText: 'text-slate-700',
-        accentBg: 'bg-white',
-        accentLight: 'bg-[#e0f2fe] text-[#1e3a8a]',
-        borderLight: 'border-[#e0f2fe]'
-    },
-    darkHeader: {
-        id: 'darkHeader',
-        name: 'Dark Header',
-        layout: 'darkHeader',
-        headerBg: 'from-black to-slate-900',
-        primaryText: 'text-black',
-        accentText: 'text-slate-700',
-        accentBg: 'bg-black',
-        accentLight: 'bg-slate-100 text-black',
-        borderLight: 'border-gray-300'
-    },
-    elegant: {
-        id: 'elegant',
-        name: 'Elegant Serif',
-        layout: 'elegant',
-        headerBg: 'from-[#b45309] to-amber-700',
-        primaryText: 'text-black',
-        accentText: 'text-[#b45309]',
-        accentBg: 'bg-white',
+    amber: {
+        id: 'amber',
+        name: 'Elegant Gold',
+        primaryText: 'text-[#b45309]',
+        accentText: 'text-[#92400e]',
+        accentBg: 'bg-[#b45309]',
         accentLight: 'bg-[#b45309]/10 text-[#b45309]',
-        borderLight: 'border-[#b45309]'
+        borderLight: 'border-[#b45309]/20',
+        borderDark: 'border-[#b45309]'
     }
 };
 
@@ -249,6 +243,8 @@ const ClassicDocument = ({ data, theme }) => (
 function CVBuilder() {
     const { user, loading, subscriptionTier, cvCount, incrementCvCount } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+    const activeLayout = location.state?.layout || 'classicSidebar'; // fallback to classic
 
     const initialData = { ...cvData, role: "Senior Software Engineer" };
     if (initialData.experience) {
@@ -259,7 +255,7 @@ function CVBuilder() {
     }
 
     const [cvState, setCvState] = useState(initialData);
-    const [activeTheme, setActiveTheme] = useState('classicSidebar');
+    const [activeTheme, setActiveTheme] = useState('blue');
     const theme = THEMES[activeTheme];
 
     const [activeTab, setActiveTab] = useState('edit'); // 'edit' or 'preview'
@@ -390,27 +386,18 @@ function CVBuilder() {
                         </div>
                     </div>
 
-                    {/* Template Switcher Widget */}
+                    {/* Template Switcher Widget (Swapped to Color Theme picker) */}
                     <div className="p-5 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl border border-slate-200 shadow-sm">
-                        <h3 className="text-sm font-bold text-slate-800 mb-4 flex items-center gap-2"><Palette size={16} className="text-slate-500" /> Select Your Template</h3>
-                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+                        <h3 className="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2"><Palette size={16} className="text-slate-500" /> Choose Colors</h3>
+                        <div className="grid grid-cols-5 gap-3">
                             {Object.values(THEMES).map(t => (
                                 <button
                                     key={t.id}
                                     onClick={() => setActiveTheme(t.id)}
-                                    className={`flex flex-col items-center p-2 rounded-xl border-2 transition-all group w-full bg-white hover:shadow-md ${activeTheme === t.id ? 'border-blue-500 shadow-md scale-[1.02]' : 'border-slate-200 hover:border-slate-300'}`}
+                                    className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all ${activeTheme === t.id ? 'border-slate-800 bg-white shadow-md scale-105' : 'border-transparent hover:bg-white/50 hover:border-slate-200'}`}
                                 >
-                                    <div className="w-full h-20 bg-slate-50 rounded border border-slate-200 overflow-hidden flex items-start justify-center relative mb-2">
-                                        <div className="w-[80%] h-full bg-white rounded-t shadow-sm border border-slate-200 relative mt-2 flex flex-col overflow-hidden">
-                                             <div className={`h-5 w-full bg-gradient-to-r ${t.headerBg}`}></div>
-                                             <div className="p-1.5 space-y-1">
-                                                 <div className="w-1/2 h-1 bg-slate-200 rounded"></div>
-                                                 <div className="w-1/3 h-1 bg-slate-200 rounded"></div>
-                                                 <div className="w-full h-4 bg-slate-50 border border-slate-100 rounded mt-2"></div>
-                                             </div>
-                                        </div>
-                                    </div>
-                                    <span className="text-[11px] font-bold text-slate-700 w-full text-center leading-tight">{t.name}</span>
+                                    <div className={`w-8 h-8 rounded-full ${t.accentBg} mb-2 shadow-inner border border-black/10`}></div>
+                                    <span className="text-[10px] font-semibold text-slate-600 text-center leading-tight truncate w-full">{t.name.split(' ')[0]}</span>
                                 </button>
                             ))}
                         </div>
@@ -634,11 +621,11 @@ function CVBuilder() {
                 {/* The A4 Document Container */}
                 <div className="print-resume-container w-full max-w-[800px] shadow-2xl origin-top transition-all duration-300 print:shadow-none print:max-w-none print:w-[210mm] print:min-h-[297mm] overflow-x-auto print:overflow-visible">
                     <div className="min-w-[600px] md:min-w-0 shadow-[0_0_15px_rgba(0,0,0,0.1)] bg-white">
-                        {theme.layout === 'modernMinimal' && <ModernMinimalDocument data={cvState} theme={theme} />}
-                        {theme.layout === 'corporate' && <CorporateDocument data={cvState} theme={theme} />}
-                        {theme.layout === 'darkHeader' && <DarkHeaderDocument data={cvState} theme={theme} />}
-                        {theme.layout === 'elegant' && <ElegantDocument data={cvState} theme={theme} />}
-                        {(!theme.layout || theme.layout === 'classic') && <ClassicDocument data={cvState} theme={theme} />}
+                        {activeLayout === 'modernMinimal' && <ModernMinimalDocument data={cvState} theme={theme} />}
+                        {activeLayout === 'corporate' && <CorporateDocument data={cvState} theme={theme} />}
+                        {activeLayout === 'darkHeader' && <DarkHeaderDocument data={cvState} theme={theme} />}
+                        {activeLayout === 'elegant' && <ElegantDocument data={cvState} theme={theme} />}
+                        {(!activeLayout || activeLayout === 'classicSidebar') && <ClassicDocument data={cvState} theme={theme} />}
                     </div>
                 </div>
             </main>

@@ -110,7 +110,7 @@ export const ModernMinimalDocument = ({ data, theme }) => (
 
 export const CorporateDocument = ({ data, theme }) => (
     <div className="flex flex-col min-h-full w-full bg-white text-slate-800 print:w-[210mm] print:h-[297mm] print:min-h-[297mm] print:overflow-hidden print:shadow-none print:m-0 print:p-0 font-sans">
-        <header className="p-10 border-b-8 border-[#1e3a8a] flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between gap-6">
+        <header className={`p-10 border-b-8 ${theme?.borderDark || 'border-[#1e3a8a]'} flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between gap-6`}>
              <div className="flex-1 text-center sm:text-left">
                  <h1 className={`text-4xl font-bold mb-1 ${theme.primaryText}`}>{data.name || 'Your Name'}</h1>
                  <h2 className="text-xl text-slate-500 italic mb-4">{data.role || 'Project Engineer'}</h2>
@@ -143,7 +143,7 @@ export const CorporateDocument = ({ data, theme }) => (
                    <div className="space-y-4">
                        {data.experience.map((exp, i) => (
                            <div key={i} className="flex flex-col sm:flex-row gap-4">
-                               <div className="sm:w-1/4 text-[13px] text-[#1e3a8a] font-medium pt-0.5">
+                               <div className={`sm:w-1/4 text-[13px] font-medium pt-0.5 ${theme?.primaryText || 'text-[#1e3a8a]'}`}>
                                    {exp.startDate} – {exp.endDate}
                                </div>
                                <div className="sm:w-3/4">
@@ -172,7 +172,7 @@ export const CorporateDocument = ({ data, theme }) => (
                    <div className="space-y-3">
                        {data.education.map((edu, i) => (
                            <div key={i} className="flex flex-col sm:flex-row gap-4">
-                               <div className="sm:w-1/4 text-[13px] text-[#1e3a8a] font-medium">
+                               <div className={`sm:w-1/4 text-[13px] font-medium ${theme?.primaryText || 'text-[#1e3a8a]'}`}>
                                    {edu.startDate} – {edu.endDate || 'Present'}
                                </div>
                                <div className="sm:w-3/4">
@@ -217,7 +217,7 @@ export const CorporateDocument = ({ data, theme }) => (
 
 export const DarkHeaderDocument = ({ data, theme }) => (
     <div className="flex flex-col min-h-full w-full bg-white text-slate-800 print:w-[210mm] print:h-[297mm] print:min-h-[297mm] print:overflow-hidden print:shadow-none print:m-0 print:p-0">
-        <header className="bg-black text-white p-10 flex flex-col gap-4">
+        <header className={`${theme?.accentBg || 'bg-black'} text-white p-10 flex flex-col gap-4`}>
             <div>
                  <h1 className="text-3xl font-bold mb-1 tracking-wide">{data.name || 'Your Name'}</h1>
                  <h2 className="text-lg text-slate-300">{data.role || 'Software Engineer'}</h2>
@@ -234,7 +234,7 @@ export const DarkHeaderDocument = ({ data, theme }) => (
             {data.summary && (
                 <div>
                     <h3 className="font-bold text-[18px] flex items-center gap-2 mb-2 border-b border-slate-100 pb-2">
-                        <span className="bg-slate-100 p-1 rounded"><Globe size={18} className="text-black"/></span> Summary
+                        <span className="bg-slate-100 p-1 rounded"><Globe size={18} className={theme?.primaryText || "text-black"}/></span> Summary
                     </h3>
                     <p className="text-[13px] text-slate-800 leading-relaxed">{data.summary}</p>
                 </div>
@@ -243,13 +243,13 @@ export const DarkHeaderDocument = ({ data, theme }) => (
             {data.experience && data.experience.length > 0 && (
                 <div>
                    <h3 className="font-bold text-[18px] flex items-center gap-2 mb-4 border-b border-slate-100 pb-2 mt-4">
-                       <span className="bg-slate-100 p-1 rounded"><Globe size={18} className="text-black"/></span> Professional Experience
+                       <span className="bg-slate-100 p-1 rounded"><Globe size={18} className={theme?.primaryText || "text-black"}/></span> Professional Experience
                    </h3>
                    <div className="space-y-5">
                        {data.experience.map((exp, i) => (
                            <div key={i}>
                                <div className="flex justify-between items-baseline mb-1">
-                                   <div className="font-bold text-[14px] text-black">{exp.role}, <span className="font-normal text-slate-700">{exp.company}</span></div>
+                                   <div className={`font-bold text-[14px] ${theme?.primaryText || 'text-black'}`}>{exp.role}, <span className="font-normal text-slate-700">{exp.company}</span></div>
                                    <div className="text-[12px] text-slate-500">{exp.startDate} – {exp.endDate}</div>
                                </div>
                                <ul className="space-y-1">
@@ -272,12 +272,12 @@ export const DarkHeaderDocument = ({ data, theme }) => (
             {data.education && data.education.length > 0 && (
                 <div>
                    <h3 className="font-bold text-[18px] flex items-center gap-2 mb-4 border-b border-slate-100 pb-2 mt-4">
-                       <span className="bg-slate-100 p-1 rounded"><Globe size={18} className="text-black"/></span> Education
+                       <span className="bg-slate-100 p-1 rounded"><Globe size={18} className={theme?.primaryText || "text-black"}/></span> Education
                    </h3>
                    <div className="space-y-3">
                        {data.education.map((edu, i) => (
                            <div key={i} className="flex justify-between items-baseline mb-1">
-                               <div className="font-bold text-[14px] text-black">{edu.degree}, <span className="font-normal text-slate-700">{edu.institution}</span></div>
+                               <div className={`font-bold text-[14px] ${theme?.primaryText || 'text-black'}`}>{edu.degree}, <span className="font-normal text-slate-700">{edu.institution}</span></div>
                                <div className="text-[12px] text-slate-500">{edu.startDate} – {edu.endDate || 'Present'}</div>
                            </div>
                        ))}
@@ -288,7 +288,7 @@ export const DarkHeaderDocument = ({ data, theme }) => (
             {data.skills && data.skills.length > 0 && (
                 <div>
                    <h3 className="font-bold text-[18px] flex items-center gap-2 mb-4 border-b border-slate-100 pb-2 mt-4">
-                       <span className="bg-slate-100 p-1 rounded"><Globe size={18} className="text-black"/></span> Skills
+                       <span className="bg-slate-100 p-1 rounded"><Globe size={18} className={theme?.primaryText || "text-black"}/></span> Skills
                    </h3>
                    <div className="grid grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-4">
                        {data.skills.map((skill, i) => (
@@ -316,10 +316,10 @@ export const ElegantDocument = ({ data, theme }) => (
                  <h1 className="text-3xl font-bold mb-1 tracking-tight text-slate-900">{data.name || 'Your Name'} <span className="font-normal italic text-slate-500 text-xl">{data.role || 'Title'}</span></h1>
                  
                  <div className="flex flex-wrap justify-center md:justify-start gap-4 text-[12px] text-slate-600 mt-2 font-sans">
-                     {data.contact?.email && <div className="flex items-center gap-1 text-[#b45309]"><Mail size={12}/> <span className="text-slate-600">{data.contact.email}</span></div>}
-                     {data.contact?.phone && <div className="flex items-center gap-1 text-[#b45309]"><Phone size={12}/> <span className="text-slate-600">{data.contact.phone}</span></div>}
-                     {data.contact?.linkedin && <div className="flex items-center gap-1 text-[#b45309]"><Linkedin size={12}/> <span className="text-slate-600">{data.contact.linkedin.replace(/^https?:\/\/(www\.)?/, '')}</span></div>}
-                     {data.contact?.location && <div className="flex items-center gap-1 text-[#b45309]"><MapPin size={12}/> <span className="text-slate-600">{data.contact.location}</span></div>}
+                     {data.contact?.email && <div className={`flex items-center gap-1 ${theme?.primaryText || 'text-[#b45309]'}`}><Mail size={12}/> <span className="text-slate-600">{data.contact.email}</span></div>}
+                     {data.contact?.phone && <div className={`flex items-center gap-1 ${theme?.primaryText || 'text-[#b45309]'}`}><Phone size={12}/> <span className="text-slate-600">{data.contact.phone}</span></div>}
+                     {data.contact?.linkedin && <div className={`flex items-center gap-1 ${theme?.primaryText || 'text-[#b45309]'}`}><Linkedin size={12}/> <span className="text-slate-600">{data.contact.linkedin.replace(/^https?:\/\/(www\.)?/, '')}</span></div>}
+                     {data.contact?.location && <div className={`flex items-center gap-1 ${theme?.primaryText || 'text-[#b45309]'}`}><MapPin size={12}/> <span className="text-slate-600">{data.contact.location}</span></div>}
                  </div>
              </div>
         </header>
@@ -328,7 +328,7 @@ export const ElegantDocument = ({ data, theme }) => (
              <aside className="w-full md:w-[35%] p-8 bg-slate-50/50 border-r border-slate-100 flex flex-col gap-6">
                  {data.summary && (
                      <div>
-                         <h3 className="font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-3 border-b-2 border-[#b45309] pb-1 w-max">
+                         <h3 className={`font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-3 border-b-2 ${theme?.borderDark || 'border-[#b45309]'} pb-1 w-max`}>
                              <Globe size={16} /> Profilo
                          </h3>
                          <p className="text-[12px] text-slate-700 leading-relaxed">{data.summary}</p>
@@ -337,7 +337,7 @@ export const ElegantDocument = ({ data, theme }) => (
 
                  {data.skills && data.skills.length > 0 && (
                      <div>
-                         <h3 className="font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-3 border-b-2 border-[#b45309] pb-1 w-max mt-2">
+                         <h3 className={`font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-3 border-b-2 ${theme?.borderDark || 'border-[#b45309]'} pb-1 w-max mt-2`}>
                              <Globe size={16} /> Skills
                          </h3>
                          <ul className="space-y-1.5 text-[12px] text-slate-700">
@@ -350,7 +350,7 @@ export const ElegantDocument = ({ data, theme }) => (
 
                  {data.languages && data.languages.length > 0 && (
                      <div>
-                         <h3 className="font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-3 border-b-2 border-[#b45309] pb-1 w-max mt-2">
+                         <h3 className={`font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-3 border-b-2 ${theme?.borderDark || 'border-[#b45309]'} pb-1 w-max mt-2`}>
                              <Globe size={16} /> Languages
                          </h3>
                          <ul className="space-y-1.5 text-[12px] text-slate-700">
@@ -363,7 +363,7 @@ export const ElegantDocument = ({ data, theme }) => (
 
                  {data.certifications && data.certifications.length > 0 && (
                      <div>
-                         <h3 className="font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-3 border-b-2 border-[#b45309] pb-1 w-max mt-2">
+                         <h3 className={`font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-3 border-b-2 ${theme?.borderDark || 'border-[#b45309]'} pb-1 w-max mt-2`}>
                              <Globe size={16} /> Certificates
                          </h3>
                          <ul className="space-y-1.5 text-[12px] text-slate-700">
@@ -378,14 +378,14 @@ export const ElegantDocument = ({ data, theme }) => (
              <main className="w-full md:w-[65%] p-8 flex flex-col gap-6">
                  {data.experience && data.experience.length > 0 && (
                      <div>
-                         <h3 className="font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-4 border-b-2 border-[#b45309] pb-1 w-max">
+                         <h3 className={`font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-4 border-b-2 ${theme?.borderDark || 'border-[#b45309]'} pb-1 w-max`}>
                              <Globe size={16} /> Professional Experience
                          </h3>
                          <div className="space-y-5">
                              {data.experience.map((exp, i) => (
                                  <div key={i}>
                                      <div className="font-bold text-[14px] text-slate-900">{exp.role}, <span className="font-normal italic text-slate-600">{exp.company}</span></div>
-                                     <div className="text-[12px] text-[#b45309] mb-1 font-sans">{exp.startDate} – {exp.endDate}</div>
+                                     <div className={`text-[12px] ${theme?.primaryText || 'text-[#b45309]'} mb-1 font-sans`}>{exp.startDate} – {exp.endDate}</div>
                                      <ul className="space-y-1">
                                           {Array.isArray(exp.responsibilities) ? exp.responsibilities.map((resp, j) => (
                                               <li key={j} className="text-[13px] text-slate-700 flex gap-2 font-sans">
@@ -405,7 +405,7 @@ export const ElegantDocument = ({ data, theme }) => (
 
                  {data.education && data.education.length > 0 && (
                      <div>
-                         <h3 className="font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-4 border-b-2 border-[#b45309] pb-1 w-max">
+                         <h3 className={`font-bold text-[14px] uppercase tracking-wider flex items-center gap-2 mb-4 border-b-2 ${theme?.borderDark || 'border-[#b45309]'} pb-1 w-max`}>
                              <Globe size={16} /> Education
                          </h3>
                          <div className="space-y-3">
@@ -413,7 +413,7 @@ export const ElegantDocument = ({ data, theme }) => (
                                  <div key={i}>
                                      <div className="font-bold text-[14px] text-slate-900">{edu.institution}</div>
                                      <div className="font-normal italic text-[13px] text-slate-600">{edu.degree}</div>
-                                     <div className="text-[12px] text-[#b45309] font-sans">{edu.startDate} – {edu.endDate || 'Present'}</div>
+                                     <div className={`text-[12px] ${theme?.primaryText || 'text-[#b45309]'} font-sans`}>{edu.startDate} – {edu.endDate || 'Present'}</div>
                                  </div>
                              ))}
                          </div>

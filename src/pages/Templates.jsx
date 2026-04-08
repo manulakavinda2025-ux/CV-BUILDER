@@ -77,7 +77,7 @@ const Templates = () => {
                         <div className="p-6 flex-1 flex flex-col">
                             <h3 className="text-xl font-bold text-slate-900 mb-2">{tpl.name}</h3>
                             <p className="text-slate-600 text-sm mb-6 flex-1">{tpl.description}</p>
-                            <Link to="/builder" className="w-full py-2.5 bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200 rounded-xl font-medium text-sm transition-colors flex items-center justify-center gap-2">
+                            <Link to="/builder" state={{ layout: tpl.id }} className="w-full py-2.5 bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200 rounded-xl font-medium text-sm transition-colors flex items-center justify-center gap-2">
                                 Use Template <ArrowRight size={16} />
                             </Link>
                         </div>
