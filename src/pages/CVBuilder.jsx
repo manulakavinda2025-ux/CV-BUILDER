@@ -7,61 +7,61 @@ import html2pdf from 'html2pdf.js';
 import { ModernMinimalDocument, CorporateDocument, DarkHeaderDocument, ElegantDocument } from '../components/ResumeTemplates';
 // --- Theme Definitions ---
 const THEMES = {
-  classicSidebar: {
-    id: 'classicSidebar',
-    name: 'Classic Pro',
-    layout: 'classic',
-    headerBg: 'from-[#425974] to-[#2c3e50]',
-    primaryText: 'text-[#425974]',
-    accentText: 'text-[#5a7698]',
-    accentBg: 'bg-[#4A5D71]',
-    accentLight: 'bg-[#4A5D71]/10 text-[#4A5D71]',
-    borderLight: 'border-[#4A5D71]/20'
-  },
-  modernMinimal: {
-    id: 'modernMinimal',
-    name: 'Modern Minimal',
-    layout: 'modernMinimal',
-    headerBg: 'from-slate-400 to-slate-500',
-    primaryText: 'text-slate-800',
-    accentText: 'text-slate-600',
-    accentBg: 'bg-[#e5e5e0]',
-    accentLight: 'bg-slate-200 text-slate-800',
-    borderLight: 'border-slate-200'
-  },
-  corporate: {
-    id: 'corporate',
-    name: 'Corporate Clean',
-    layout: 'corporate',
-    headerBg: 'from-[#1e3a8a] to-blue-800',
-    primaryText: 'text-[#1e3a8a]',
-    accentText: 'text-slate-700',
-    accentBg: 'bg-white',
-    accentLight: 'bg-[#e0f2fe] text-[#1e3a8a]',
-    borderLight: 'border-[#e0f2fe]'
-  },
-  darkHeader: {
-    id: 'darkHeader',
-    name: 'Dark Header',
-    layout: 'darkHeader',
-    headerBg: 'from-black to-slate-900',
-    primaryText: 'text-black',
-    accentText: 'text-slate-700',
-    accentBg: 'bg-black',
-    accentLight: 'bg-slate-100 text-black',
-    borderLight: 'border-gray-300'
-  },
-  elegant: {
-    id: 'elegant',
-    name: 'Elegant Serif',
-    layout: 'elegant',
-    headerBg: 'from-[#b45309] to-amber-700',
-    primaryText: 'text-black',
-    accentText: 'text-[#b45309]',
-    accentBg: 'bg-white',
-    accentLight: 'bg-[#b45309]/10 text-[#b45309]',
-    borderLight: 'border-[#b45309]'
-  }
+    classicSidebar: {
+        id: 'classicSidebar',
+        name: 'Classic Pro',
+        layout: 'classic',
+        headerBg: 'from-[#425974] to-[#2c3e50]',
+        primaryText: 'text-[#425974]',
+        accentText: 'text-[#5a7698]',
+        accentBg: 'bg-[#4A5D71]',
+        accentLight: 'bg-[#4A5D71]/10 text-[#4A5D71]',
+        borderLight: 'border-[#4A5D71]/20'
+    },
+    modernMinimal: {
+        id: 'modernMinimal',
+        name: 'Modern Minimal',
+        layout: 'modernMinimal',
+        headerBg: 'from-slate-400 to-slate-500',
+        primaryText: 'text-slate-800',
+        accentText: 'text-slate-600',
+        accentBg: 'bg-[#e5e5e0]',
+        accentLight: 'bg-slate-200 text-slate-800',
+        borderLight: 'border-slate-200'
+    },
+    corporate: {
+        id: 'corporate',
+        name: 'Corporate Clean',
+        layout: 'corporate',
+        headerBg: 'from-[#1e3a8a] to-blue-800',
+        primaryText: 'text-[#1e3a8a]',
+        accentText: 'text-slate-700',
+        accentBg: 'bg-white',
+        accentLight: 'bg-[#e0f2fe] text-[#1e3a8a]',
+        borderLight: 'border-[#e0f2fe]'
+    },
+    darkHeader: {
+        id: 'darkHeader',
+        name: 'Dark Header',
+        layout: 'darkHeader',
+        headerBg: 'from-black to-slate-900',
+        primaryText: 'text-black',
+        accentText: 'text-slate-700',
+        accentBg: 'bg-black',
+        accentLight: 'bg-slate-100 text-black',
+        borderLight: 'border-gray-300'
+    },
+    elegant: {
+        id: 'elegant',
+        name: 'Elegant Serif',
+        layout: 'elegant',
+        headerBg: 'from-[#b45309] to-amber-700',
+        primaryText: 'text-black',
+        accentText: 'text-[#b45309]',
+        accentBg: 'bg-white',
+        accentLight: 'bg-[#b45309]/10 text-[#b45309]',
+        borderLight: 'border-[#b45309]'
+    }
 };
 
 // --- Form Input Components ---
@@ -80,101 +80,101 @@ const ClassicDocument = ({ data, theme }) => (
         {/* Left Sidebar */}
         <aside className={`w-full sm:w-[30%] ${theme.accentBg} text-white p-8 space-y-8 print:w-[30%]`}>
             <div className="flex justify-center mb-6">
-                 {/* Placeholder for Photo */}
-                 <div className="w-32 h-40 bg-white/10 rounded-md shadow-inner flex items-center justify-center border-4 border-white/20 overflow-hidden relative group">
-                      {data.photo ? <img src={data.photo} alt="Profile" className="w-full h-full object-cover" /> : <span className="text-sm font-semibold text-white/50 text-center px-2">Profile Photo</span>}
-                 </div>
+                {/* Placeholder for Photo */}
+                <div className="w-32 h-40 bg-white/10 rounded-md shadow-inner flex items-center justify-center border-4 border-white/20 overflow-hidden relative group">
+                    {data.photo ? <img src={data.photo} alt="Profile" className="w-full h-full object-cover" /> : <span className="text-sm font-semibold text-white/50 text-center px-2">Profile Photo</span>}
+                </div>
             </div>
 
             <div className="space-y-4 text-[13px] leading-relaxed break-words border-b border-white/20 pb-8">
                 {data.contact?.phone && (
-                <div className="flex items-start gap-4">
-                    <div className="mt-1"><Phone size={16} /></div>
-                    <span>{data.contact.phone}</span>
-                </div>
+                    <div className="flex items-start gap-4">
+                        <div className="mt-1"><Phone size={16} /></div>
+                        <span>{data.contact.phone}</span>
+                    </div>
                 )}
                 {data.contact?.email && (
-                <div className="flex items-start gap-4">
-                    <div className="mt-1"><Mail size={16} /></div>
-                    <span>{data.contact.email}</span>
-                </div>
+                    <div className="flex items-start gap-4">
+                        <div className="mt-1"><Mail size={16} /></div>
+                        <span>{data.contact.email}</span>
+                    </div>
                 )}
                 {data.contact?.location && (
-                <div className="flex items-start gap-4">
-                    <div className="mt-1"><MapPin size={16} /></div>
-                    <span>{data.contact.location}</span>
-                </div>
+                    <div className="flex items-start gap-4">
+                        <div className="mt-1"><MapPin size={16} /></div>
+                        <span>{data.contact.location}</span>
+                    </div>
                 )}
                 {data.contact?.linkedin && (
-                <div className="flex items-start gap-4">
-                    <div className="mt-1"><Linkedin size={16} /></div>
-                    <span>{data.contact.linkedin.replace(/^https?:\/\/(www\.)?/, '')}</span>
-                </div>
+                    <div className="flex items-start gap-4">
+                        <div className="mt-1"><Linkedin size={16} /></div>
+                        <span>{data.contact.linkedin.replace(/^https?:\/\/(www\.)?/, '')}</span>
+                    </div>
                 )}
             </div>
 
             {data.skills && data.skills.length > 0 && (
-            <div className="space-y-3">
-                <h3 className="text-xl font-bold uppercase tracking-wider mb-4 border-b border-white/20 pb-2">Skills</h3>
-                <ul className="space-y-2 text-[13px]">
-                   {data.skills.map((skill, i) => (
-                       <li key={i} className="flex gap-2.5">
-                           <span className="mt-[6px] text-xs">■</span>
-                           <span className="font-medium text-white/90">
-                              {typeof skill === 'string' ? skill : (skill.items?.[0] || skill.category)}
-                           </span>
-                       </li>
-                   ))}
-                </ul>
-            </div>
+                <div className="space-y-3">
+                    <h3 className="text-xl font-bold uppercase tracking-wider mb-4 border-b border-white/20 pb-2">Skills</h3>
+                    <ul className="space-y-2 text-[13px]">
+                        {data.skills.map((skill, i) => (
+                            <li key={i} className="flex gap-2.5">
+                                <span className="mt-[6px] text-xs">■</span>
+                                <span className="font-medium text-white/90">
+                                    {typeof skill === 'string' ? skill : (skill.items?.[0] || skill.category)}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )}
 
             {data.certifications && data.certifications.length > 0 && (
-            <div className="space-y-3">
-                <h3 className="text-xl font-bold uppercase tracking-wider mb-4 border-b border-white/20 pb-2 mt-6">Certifications</h3>
-                <ul className="space-y-3 text-[13px]">
-                   {data.certifications.map((cert, i) => (
-                       <li key={i} className="flex gap-2.5">
-                           <span className="mt-[6px] text-xs">■</span>
-                           <span className="font-medium text-white/90">
-                               {typeof cert === 'string' ? cert : `${cert.name} ${cert.issuer ? `(${cert.issuer})` : ''}`}
-                           </span>
-                       </li>
-                   ))}
-                </ul>
-            </div>
+                <div className="space-y-3">
+                    <h3 className="text-xl font-bold uppercase tracking-wider mb-4 border-b border-white/20 pb-2 mt-6">Certifications</h3>
+                    <ul className="space-y-3 text-[13px]">
+                        {data.certifications.map((cert, i) => (
+                            <li key={i} className="flex gap-2.5">
+                                <span className="mt-[6px] text-xs">■</span>
+                                <span className="font-medium text-white/90">
+                                    {typeof cert === 'string' ? cert : `${cert.name} ${cert.issuer ? `(${cert.issuer})` : ''}`}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )}
 
             {data.languages && data.languages.length > 0 && (
-            <div className="space-y-3">
-                <h3 className="text-xl font-bold uppercase tracking-wider mb-4 border-b border-white/20 pb-2 mt-6">Languages</h3>
-                <ul className="space-y-3 text-[13px]">
-                   {data.languages.map((lang, i) => (
-                       <li key={i} className="flex gap-2.5">
-                           <span className="mt-[6px] text-xs">■</span>
-                           <span className="font-medium text-white/90">
-                               {typeof lang === 'string' ? lang : lang.name}
-                           </span>
-                       </li>
-                   ))}
-                </ul>
-            </div>
+                <div className="space-y-3">
+                    <h3 className="text-xl font-bold uppercase tracking-wider mb-4 border-b border-white/20 pb-2 mt-6">Languages</h3>
+                    <ul className="space-y-3 text-[13px]">
+                        {data.languages.map((lang, i) => (
+                            <li key={i} className="flex gap-2.5">
+                                <span className="mt-[6px] text-xs">■</span>
+                                <span className="font-medium text-white/90">
+                                    {typeof lang === 'string' ? lang : lang.name}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )}
 
             {data.hobbies && data.hobbies.length > 0 && (
-            <div className="space-y-3">
-                <h3 className="text-xl font-bold uppercase tracking-wider mb-4 border-b border-white/20 pb-2 mt-6">Hobbies</h3>
-                <ul className="space-y-3 text-[13px]">
-                   {data.hobbies.map((hobby, i) => (
-                       <li key={i} className="flex gap-2.5">
-                           <span className="mt-[6px] text-xs">■</span>
-                           <span className="font-medium text-white/90">
-                               {typeof hobby === 'string' ? hobby : hobby.name}
-                           </span>
-                       </li>
-                   ))}
-                </ul>
-            </div>
+                <div className="space-y-3">
+                    <h3 className="text-xl font-bold uppercase tracking-wider mb-4 border-b border-white/20 pb-2 mt-6">Hobbies</h3>
+                    <ul className="space-y-3 text-[13px]">
+                        {data.hobbies.map((hobby, i) => (
+                            <li key={i} className="flex gap-2.5">
+                                <span className="mt-[6px] text-xs">■</span>
+                                <span className="font-medium text-white/90">
+                                    {typeof hobby === 'string' ? hobby : hobby.name}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )}
         </aside>
 
@@ -247,412 +247,421 @@ const ClassicDocument = ({ data, theme }) => (
 );
 
 function CVBuilder() {
-  const { user, loading, subscriptionTier, cvCount, incrementCvCount } = useAuth();
-  const navigate = useNavigate();
+    const { user, loading, subscriptionTier, cvCount, incrementCvCount } = useAuth();
+    const navigate = useNavigate();
 
-  const initialData = { ...cvData, role: "Senior Software Engineer" };
-  if(initialData.experience) {
-     initialData.experience = initialData.experience.map(exp => ({
-         ...exp,
-         responsibilities: Array.isArray(exp.responsibilities) ? exp.responsibilities.join('\n') : exp.responsibilities
-     }))
-  }
+    const initialData = { ...cvData, role: "Senior Software Engineer" };
+    if (initialData.experience) {
+        initialData.experience = initialData.experience.map(exp => ({
+            ...exp,
+            responsibilities: Array.isArray(exp.responsibilities) ? exp.responsibilities.join('\n') : exp.responsibilities
+        }))
+    }
 
-  const [cvState, setCvState] = useState(initialData);
-  const [activeTheme, setActiveTheme] = useState('classicSidebar');
-  const theme = THEMES[activeTheme];
+    const [cvState, setCvState] = useState(initialData);
+    const [activeTheme, setActiveTheme] = useState('classicSidebar');
+    const theme = THEMES[activeTheme];
 
-  const [activeTab, setActiveTab] = useState('edit'); // 'edit' or 'preview'
+    const [activeTab, setActiveTab] = useState('edit'); // 'edit' or 'preview'
 
-  if (!user) return null;
+    if (!user) return null;
 
-  const handlePersonalChange = (e) => {
-      const { name, value } = e.target;
-      if (['email', 'phone', 'location', 'linkedin', 'portfolio'].includes(name)) {
-          setCvState(prev => ({
-              ...prev,
-              contact: { ...(prev.contact || {}), [name]: value }
-          }));
-      } else {
-          setCvState(prev => ({ ...prev, [name]: value }));
-      }
-  };
+    const handlePersonalChange = (e) => {
+        const { name, value } = e.target;
+        if (['email', 'phone', 'location', 'linkedin', 'portfolio'].includes(name)) {
+            setCvState(prev => ({
+                ...prev,
+                contact: { ...(prev.contact || {}), [name]: value }
+            }));
+        } else {
+            setCvState(prev => ({ ...prev, [name]: value }));
+        }
+    };
 
-  const handleSummaryChange = (e) => {
-      setCvState(prev => ({ ...prev, summary: e.target.value }));
-  };
+    const handleSummaryChange = (e) => {
+        setCvState(prev => ({ ...prev, summary: e.target.value }));
+    };
 
-  const handleArrayItemChange = (arrayName, index, field, value) => {
-      setCvState(prev => {
-          const newArray = [...(prev[arrayName] || [])];
-          if(typeof newArray[index] === 'string') {
-              newArray[index] = value;
-          } else {
-              newArray[index] = { ...newArray[index], [field]: value };
-          }
-          return { ...prev, [arrayName]: newArray };
-      });
-  };
+    const handleArrayItemChange = (arrayName, index, field, value) => {
+        setCvState(prev => {
+            const newArray = [...(prev[arrayName] || [])];
+            if (typeof newArray[index] === 'string') {
+                newArray[index] = value;
+            } else {
+                newArray[index] = { ...newArray[index], [field]: value };
+            }
+            return { ...prev, [arrayName]: newArray };
+        });
+    };
 
-  const handlePhotoUpload = (e) => {
-      const file = e.target.files[0];
-      if (file) {
-          const reader = new FileReader();
-          reader.onloadend = () => {
-              setCvState(prev => ({ ...prev, photo: reader.result }));
-          };
-          reader.readAsDataURL(file);
-      }
-  };
+    const handlePhotoUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setCvState(prev => ({ ...prev, photo: reader.result }));
+            };
+            reader.readAsDataURL(file);
+        }
+    };
 
-  const addArrayItem = (arrayName, templateItem) => {
-      setCvState(prev => ({
-          ...prev,
-          [arrayName]: [...(prev[arrayName] || []), templateItem]
-      }));
-  };
+    const addArrayItem = (arrayName, templateItem) => {
+        setCvState(prev => ({
+            ...prev,
+            [arrayName]: [...(prev[arrayName] || []), templateItem]
+        }));
+    };
 
-  const removeArrayItem = (arrayName, index) => {
-       setCvState(prev => {
-          const newArray = [...prev[arrayName]];
-          newArray.splice(index, 1);
-          return { ...prev, [arrayName]: newArray };
-      });
-  };
+    const removeArrayItem = (arrayName, index) => {
+        setCvState(prev => {
+            const newArray = [...prev[arrayName]];
+            newArray.splice(index, 1);
+            return { ...prev, [arrayName]: newArray };
+        });
+    };
 
-  const handlePrint = () => {
-      if (incrementCvCount) incrementCvCount();
-      window.print();
-  };
+    const handlePrint = () => {
+        if (incrementCvCount) incrementCvCount();
+        window.print();
+    };
 
-  const handleDownloadPDF = () => {
-      if (incrementCvCount) incrementCvCount();
-      const element = document.querySelector('.print-resume-container');
-      const opt = {
-          margin:       0,
-          filename:     `${cvState.name || 'CV'}.pdf`,
-          image:        { type: 'jpeg', quality: 0.98 },
-          html2canvas:  { scale: 2 },
-          jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
-      };
-      html2pdf().set(opt).from(element).save();
-  };
+    const handleDownloadPDF = () => {
+        if (incrementCvCount) incrementCvCount();
+        const element = document.querySelector('.print-resume-container');
+        const opt = {
+            margin: 0,
+            filename: `${cvState.name || 'CV'}.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+        };
+        html2pdf().set(opt).from(element).save();
+    };
 
-  return (
-    <div className="h-screen flex flex-col md:flex-row overflow-hidden selection:bg-blue-100 selection:text-blue-900 bg-slate-200 font-inter">
-      
-      {/* Mobile Tab Switcher */}
-      <div className="md:hidden no-print flex bg-slate-900 border-b border-white/10 p-2 gap-2 sticky top-0 z-50">
-          <button 
-            onClick={() => setActiveTab('edit')}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'edit' ? 'bg-[#7DF9FF] text-black shadow-lg shadow-[#7DF9FF]/20' : 'text-slate-400 hover:text-white'}`}
-          >
-              <Edit2 size={16} /> Edit
-          </button>
-          <button 
-            onClick={() => setActiveTab('preview')}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'preview' ? 'bg-[#7DF9FF] text-black shadow-lg shadow-[#7DF9FF]/20' : 'text-slate-400 hover:text-white'}`}
-          >
-              <FileText size={16} /> Preview
-          </button>
-      </div>
-      
-      {/* --- LEFT PANE: CONTROLS & FORM --- */}
-      <aside className={`${activeTab === 'edit' ? 'flex' : 'hidden'} md:flex w-full md:w-[35%] h-full bg-slate-50 flex-col border-r border-slate-200 overflow-y-auto print:hidden shadow-xl z-20`}>
-          
-          <div className="p-4 sm:p-6 border-b border-slate-100 bg-slate-900 text-white sticky top-0 z-30 hidden md:block">
-              <div className="flex items-center justify-between">
-                 <div className="flex items-center gap-3">
-                     <div className="p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg shadow-inner"><Sparkles size={20} className="text-white" /></div>
-                     <h2 className="text-xl font-bold tracking-tight">Smart AI CV Builder</h2>
-                 </div>
-                 <div className="flex gap-2">
-                     <button className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium" onClick={handlePrint}>
-                         <Printer size={16} /> Print
-                     </button>
-                     <button className="p-2 bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium" onClick={handleDownloadPDF}>
-                         <Download size={16} /> Download
-                     </button>
-                 </div>
-              </div>
-          </div>
+    return (
+        <div className="h-screen flex flex-col md:flex-row overflow-hidden selection:bg-blue-100 selection:text-blue-900 bg-slate-200 font-inter">
 
-          <div className="p-4 sm:p-6 space-y-8 sm:space-y-10 flex-1">
-             <div className="md:hidden flex items-center justify-between mb-4">
-                 <h2 className="text-xl font-bold text-slate-800">CV Editor</h2>
-                 <div className="flex gap-2">
-                     <button className="bg-slate-200 text-slate-800 px-3 py-2 rounded-lg flex items-center gap-1 text-xs font-bold shadow-sm" onClick={handlePrint}>
-                         <Printer size={14} /> Print
-                     </button>
-                     <button className="bg-slate-900 text-white px-3 py-2 rounded-lg flex items-center gap-1 text-xs font-bold shadow-lg" onClick={handleDownloadPDF}>
-                         <Download size={14} /> Download
-                     </button>
-                 </div>
-             </div>
-             
-             {/* Theme Switcher Widget */}
-             <div className="p-5 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl border border-slate-200 shadow-sm">
-                 <h3 className="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2"><Palette size={16} className="text-slate-500" /> Color Theme</h3>
-                 <div className="grid grid-cols-3 gap-3">
-                     {Object.values(THEMES).map(t => (
-                         <button 
-                            key={t.id} 
-                            onClick={() => setActiveTheme(t.id)}
-                            className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all ${activeTheme === t.id ? 'border-slate-800 bg-white shadow-md scale-105' : 'border-transparent hover:bg-white/50 hover:border-slate-200'}`}
-                         >
-                             <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${t.headerBg} mb-2 shadow-inner border border-black/10`}></div>
-                             <span className="text-[10px] font-semibold text-slate-600 text-center leading-tight">{t.name}</span>
-                         </button>
-                     ))}
-                 </div>
-             </div>
-
-             {/* Personal Info Form */}
-             <div className="space-y-4">
-                 <h3 className="text-lg font-semibold flex items-center gap-2 text-slate-800 border-b pb-2"><Edit2 size={16} className="text-slate-400"/> Personal Details</h3>
-                 <div className="grid grid-cols-1 gap-y-4">
-                     <div className="flex items-center gap-4 border p-3 rounded-lg bg-slate-50 border-slate-200 shadow-sm">
-                         <div className="w-16 h-16 bg-slate-200 rounded-md overflow-hidden flex items-center justify-center border border-slate-300">
-                             {cvState.photo ? <img src={cvState.photo} alt="Preview" className="w-full h-full object-cover" /> : <span className="text-[10px] text-slate-500 font-medium">No Photo</span>}
-                         </div>
-                         <div className="flex-1">
-                             <label className="text-sm font-semibold text-slate-700 block mb-1">Profile Photo</label>
-                             <input type="file" accept="image/*" onChange={handlePhotoUpload} className="text-xs text-slate-500 file:mr-4 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition-all cursor-pointer w-full" />
-                         </div>
-                     </div>
-                     <InputGroup label="Full Name">
-                         <input type="text" name="name" value={cvState.name} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm" />
-                     </InputGroup>
-                     <InputGroup label="Job Title / Role">
-                         <input type="text" name="role" value={cvState.role || ''} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm" />
-                     </InputGroup>
-                     <div className="grid grid-cols-2 gap-4">
-                         <InputGroup label="Email">
-                            <input type="email" name="email" value={cvState.contact?.email || ''} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm shadow-sm" />
-                         </InputGroup>
-                         <InputGroup label="Phone">
-                            <input type="tel" name="phone" value={cvState.contact?.phone || ''} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm shadow-sm" />
-                         </InputGroup>
-                     </div>
-                     <InputGroup label="Location">
-                        <input type="text" name="location" value={cvState.contact?.location || ''} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm shadow-sm" />
-                     </InputGroup>
-                     <div className="grid grid-cols-2 gap-4">
-                         <InputGroup label="LinkedIn URL">
-                            <input type="text" name="linkedin" value={cvState.contact?.linkedin || ''} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm shadow-sm" />
-                         </InputGroup>
-                         <InputGroup label="GitHub URL">
-                            <input type="text" name="portfolio" value={cvState.contact?.portfolio || ''} onChange={handlePersonalChange} placeholder="e.g. github.com/username" className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm shadow-sm" />
-                         </InputGroup>
-                     </div>
-                 </div>
-             </div>
-
-             {/* Professional Summary Form */}
-             <div className="space-y-4">
-                 <div className="flex items-center justify-between border-b pb-2">
-                    <h3 className="text-lg font-semibold flex items-center gap-2 text-slate-800"><Briefcase size={16} className="text-slate-400"/> Summary</h3>
-                    <button className="text-xs bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-3 py-1.5 rounded-full font-medium shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 opacity-50 cursor-not-allowed">
-                        <Sparkles size={12} /> AI Enhance
-                    </button>
-                 </div>
-                 <InputGroup label="Write a brief professional summary">
-                     <textarea rows={5} name="summary" value={cvState.summary || ''} onChange={handleSummaryChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm resize-y leading-relaxed" />
-                 </InputGroup>
-             </div>
-
-             {/* Education Form Component */}
-             <div className="space-y-4">
-                 <div className="flex items-center justify-between border-b border-slate-200 pb-2">
-                    <h3 className="text-lg font-bold flex items-center gap-2 text-slate-800">🎓 Education</h3>
-                    <button 
-                        onClick={() => addArrayItem('education', { institution: '', degree: '', startDate: '', endDate: '' })}
-                        className="text-xs border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-1.5 rounded-full font-bold transition-all flex items-center gap-1 shadow-sm"
-                    >
-                        + Add Degree
-                    </button>
-                 </div>
-                 
-                 <div className="space-y-4">
-                     {(cvState.education || []).map((edu, idx) => (
-                         <div key={idx} className="p-5 bg-white border border-slate-200 rounded-xl shadow-sm relative group hover:border-blue-300 transition-all">
-                             <button onClick={() => removeArrayItem('education', idx)} className="absolute top-4 right-4 p-1.5 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors">
-                                 <Trash2 size={18} />
-                             </button>
-                             <div className="space-y-4 pt-2">
-                                <InputGroup label="Institution / University">
-                                    <input type="text" value={edu.institution} onChange={(e) => handleArrayItemChange('education', idx, 'institution', e.target.value)} className="w-full px-3 py-2 bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
-                                </InputGroup>
-                                <InputGroup label="Degree / Certificate">
-                                    <input type="text" value={edu.degree} onChange={(e) => handleArrayItemChange('education', idx, 'degree', e.target.value)} className="w-full px-3 py-2 bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
-                                </InputGroup>
-                                <div className="grid grid-cols-2 gap-3">
-                                    <InputGroup label="Start Date">
-                                        <input type="text" placeholder="e.g. Sep 2018" value={edu.startDate} onChange={(e) => handleArrayItemChange('education', idx, 'startDate', e.target.value)} className="w-full px-3 py-2 bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
-                                    </InputGroup>
-                                    <InputGroup label="End Date">
-                                        <input type="text" placeholder="e.g. May 2022" value={edu.endDate} onChange={(e) => handleArrayItemChange('education', idx, 'endDate', e.target.value)} className="w-full px-3 py-2 bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
-                                    </InputGroup>
-                                </div>
-                             </div>
-                         </div>
-                     ))}
-                 </div>
-             </div>
-
-              {/* Work Experience Form Component */}
-              <div className="space-y-4">
-                 <div className="flex items-center justify-between border-b border-slate-200 pb-2">
-                    <h3 className="text-lg font-bold flex items-center gap-2 text-slate-800">💼 Work Experience</h3>
-                    <button 
-                        onClick={() => addArrayItem('experience', { company: '', role: '', startDate: '', endDate: '', responsibilities: '' })}
-                        className="text-xs border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-1.5 rounded-full font-bold transition-all flex items-center gap-1 shadow-sm"
-                    >
-                        + Add Job
-                    </button>
-                 </div>
-                 
-                 <div className="space-y-4">
-                     {(cvState.experience || []).map((exp, idx) => (
-                         <div key={idx} className="p-5 bg-white border border-slate-200 rounded-xl relative shadow-sm group hover:border-blue-300 transition-all">
-                             <button onClick={() => removeArrayItem('experience', idx)} className="absolute top-4 right-4 p-1.5 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors">
-                                 <Trash2 size={18} />
-                             </button>
-                             <div className="space-y-4 pt-2">
-                                <InputGroup label="Company Name">
-                                    <input type="text" value={exp.company} onChange={(e) => handleArrayItemChange('experience', idx, 'company', e.target.value)} className="w-full px-3 py-2 bg-white shadow-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
-                                </InputGroup>
-                                <InputGroup label="Role / Title">
-                                    <input type="text" value={exp.role} onChange={(e) => handleArrayItemChange('experience', idx, 'role', e.target.value)} className="w-full px-3 py-2 bg-white shadow-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
-                                </InputGroup>
-                                <div className="grid grid-cols-2 gap-3">
-                                    <InputGroup label="Start Date">
-                                        <input type="text" placeholder="e.g. Jan 2021" value={exp.startDate} onChange={(e) => handleArrayItemChange('experience', idx, 'startDate', e.target.value)} className="w-full px-3 py-2 bg-white shadow-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
-                                    </InputGroup>
-                                    <InputGroup label="End Date">
-                                        <input type="text" placeholder="e.g. Present" value={exp.endDate} onChange={(e) => handleArrayItemChange('experience', idx, 'endDate', e.target.value)} className="w-full px-3 py-2 bg-white shadow-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
-                                    </InputGroup>
-                                </div>
-                                <InputGroup label="Responsibilities & Achievements">
-                                    <div className="relative">
-                                        <textarea rows={5} placeholder="• List your key achievements..." value={exp.responsibilities} onChange={(e) => handleArrayItemChange('experience', idx, 'responsibilities', e.target.value)} className="w-full px-3 py-2 bg-white shadow-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm resize-y leading-relaxed" />
-                                        <button className="absolute bottom-2 right-4 text-xs bg-white border border-slate-200 text-blue-600 px-2 py-1 rounded shadow-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-1 opacity-50 cursor-not-allowed">
-                                            <Sparkles size={12} /> AI Rewrite
-                                        </button>
-                                    </div>
-                                </InputGroup>
-                             </div>
-                         </div>
-                     ))}
-                 </div>
-             </div>
-
-              {/* Additional Details Forms */}
-              <div className="space-y-6 pt-4 border-t border-slate-200">
-                 <h3 className="text-lg font-semibold flex items-center gap-2 text-slate-800"><List size={16} className="text-slate-400"/> Additional Details</h3>
-                 
-                 {/* Skills Form */}
-                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
-                    <div className="flex items-center justify-between mb-3">
-                        <label className="text-sm font-semibold text-slate-700">Skills</label>
-                        <button onClick={() => addArrayItem('skills', { category: '' })} className="p-1 hover:bg-slate-200 rounded text-slate-500 transition-colors"><Plus size={16} /></button>
-                    </div>
-                    <div className="space-y-2">
-                        {(cvState.skills || []).map((skill, idx) => (
-                            <div key={idx} className="flex gap-2 relative group">
-                                <input type="text" placeholder="e.g. React.js, Sales, Leadership..." value={typeof skill === 'string' ? skill : (skill.category || skill.items?.[0] || '')} onChange={(e) => handleArrayItemChange('skills', idx, 'category', e.target.value)} className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
-                                <button onClick={() => removeArrayItem('skills', idx)} className="text-slate-400 hover:text-red-500 px-2"><Trash2 size={16} /></button>
-                            </div>
-                        ))}
-                    </div>
-                 </div>
-
-                 {/* Certifications Form */}
-                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
-                    <div className="flex items-center justify-between mb-3">
-                        <label className="text-sm font-semibold text-slate-700">Certifications</label>
-                        <button onClick={() => addArrayItem('certifications', { name: '' })} className="p-1 hover:bg-slate-200 rounded text-slate-500 transition-colors"><Plus size={16} /></button>
-                    </div>
-                    <div className="space-y-2">
-                        {(cvState.certifications || []).map((cert, idx) => (
-                            <div key={idx} className="flex gap-2 relative group">
-                                <input type="text" placeholder="e.g. AWS Certified Developer" value={typeof cert === 'string' ? cert : cert.name} onChange={(e) => handleArrayItemChange('certifications', idx, 'name', e.target.value)} className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
-                                <button onClick={() => removeArrayItem('certifications', idx)} className="text-slate-400 hover:text-red-500 px-2"><Trash2 size={16} /></button>
-                            </div>
-                        ))}
-                    </div>
-                 </div>
-
-                 {/* Languages Form */}
-                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
-                    <div className="flex items-center justify-between mb-3">
-                        <label className="text-sm font-semibold text-slate-700">Languages</label>
-                        <button onClick={() => addArrayItem('languages', '')} className="p-1 hover:bg-slate-200 rounded text-slate-500 transition-colors"><Plus size={16} /></button>
-                    </div>
-                    <div className="space-y-2">
-                        {(cvState.languages || []).map((lang, idx) => (
-                            <div key={idx} className="flex gap-2 relative group">
-                                <input type="text" placeholder="e.g. English - Native" value={typeof lang === 'string' ? lang : lang.name} onChange={(e) => handleArrayItemChange('languages', idx, 'name', e.target.value)} className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
-                                <button onClick={() => removeArrayItem('languages', idx)} className="text-slate-400 hover:text-red-500 px-2"><Trash2 size={16} /></button>
-                            </div>
-                        ))}
-                    </div>
-                 </div>
-
-                 {/* Hobbies Form */}
-                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
-                    <div className="flex items-center justify-between mb-3">
-                        <label className="text-sm font-semibold text-slate-700">Hobbies</label>
-                        <button onClick={() => addArrayItem('hobbies', '')} className="p-1 hover:bg-slate-200 rounded text-slate-500 transition-colors"><Plus size={16} /></button>
-                    </div>
-                    <div className="space-y-2">
-                        {(cvState.hobbies || []).map((hobby, idx) => (
-                            <div key={idx} className="flex gap-2 relative group">
-                                <input type="text" placeholder="e.g. Photography, Hiking..." value={typeof hobby === 'string' ? hobby : hobby.name} onChange={(e) => handleArrayItemChange('hobbies', idx, 'name', e.target.value)} className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
-                                <button onClick={() => removeArrayItem('hobbies', idx)} className="text-slate-400 hover:text-red-500 px-2"><Trash2 size={16} /></button>
-                            </div>
-                        ))}
-                    </div>
-                 </div>
-              </div>
-
-
-          </div>
-      </aside>
-
-      {/* --- RIGHT PANE: LIVE PREVIEW --- */}
-      <main className={`${activeTab === 'preview' ? 'flex' : 'hidden'} md:flex flex-1 h-full bg-slate-200 overflow-y-auto p-4 sm:p-8 justify-center items-start print:block print:p-0 print:bg-white print:overflow-visible`}>
-        {/* The A4 Document Container */}
-        <div className="print-resume-container w-full max-w-[800px] shadow-2xl origin-top transition-all duration-300 print:shadow-none print:max-w-none print:w-[210mm] print:min-h-[297mm] overflow-x-auto print:overflow-visible">
-            <div className="min-w-[600px] md:min-w-0 shadow-[0_0_15px_rgba(0,0,0,0.1)] bg-white">
-                {theme.layout === 'modernMinimal' && <ModernMinimalDocument data={cvState} theme={theme} />}
-                {theme.layout === 'corporate' && <CorporateDocument data={cvState} theme={theme} />}
-                {theme.layout === 'darkHeader' && <DarkHeaderDocument data={cvState} theme={theme} />}
-                {theme.layout === 'elegant' && <ElegantDocument data={cvState} theme={theme} />}
-                {(!theme.layout || theme.layout === 'classic') && <ClassicDocument data={cvState} theme={theme} />}
+            {/* Mobile Tab Switcher */}
+            <div className="md:hidden no-print flex bg-slate-900 border-b border-white/10 p-2 gap-2 sticky top-0 z-50">
+                <button
+                    onClick={() => setActiveTab('edit')}
+                    className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'edit' ? 'bg-[#7DF9FF] text-black shadow-lg shadow-[#7DF9FF]/20' : 'text-slate-400 hover:text-white'}`}
+                >
+                    <Edit2 size={16} /> Edit
+                </button>
+                <button
+                    onClick={() => setActiveTab('preview')}
+                    className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'preview' ? 'bg-[#7DF9FF] text-black shadow-lg shadow-[#7DF9FF]/20' : 'text-slate-400 hover:text-white'}`}
+                >
+                    <FileText size={16} /> Preview
+                </button>
             </div>
-        </div>
-      </main>
 
-      {/* Floating Buttons for Mobile (Preview Tab Only) */}
-      {activeTab === 'preview' && (
-          <div className="md:hidden no-print fixed bottom-6 right-6 flex flex-col gap-3 z-[60]">
-             <button 
-                onClick={handlePrint}
-                className="w-14 h-14 bg-white text-slate-900 border border-slate-200 rounded-full flex items-center justify-center shadow-lg transition-transform active:scale-95"
-              >
-                  <Printer size={24} />
-              </button>
-              <button 
-                onClick={handleDownloadPDF}
-                className="w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl animate-bounce"
-              >
-                  <Download size={24} />
-              </button>
-          </div>
-      )}
-    </div>
-  );
+            {/* --- LEFT PANE: CONTROLS & FORM --- */}
+            <aside className={`${activeTab === 'edit' ? 'flex' : 'hidden'} md:flex w-full md:w-[35%] h-full bg-slate-50 flex-col border-r border-slate-200 overflow-y-auto print:hidden shadow-xl z-20`}>
+
+                <div className="p-4 sm:p-6 border-b border-slate-100 bg-slate-900 text-white sticky top-0 z-30 hidden md:block">
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                            <div className="p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg shadow-inner"><Sparkles size={20} className="text-white" /></div>
+                            <h2 className="text-xl font-bold tracking-tight">Smart AI CV Builder</h2>
+                        </div>
+                        <div className="flex gap-2">
+                            <button className="p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium" onClick={handlePrint}>
+                                <Printer size={16} /> Print
+                            </button>
+                            <button className="p-2 bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium" onClick={handleDownloadPDF}>
+                                <Download size={16} /> Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="p-4 sm:p-6 space-y-8 sm:space-y-10 flex-1">
+                    <div className="md:hidden flex items-center justify-between mb-4">
+                        <h2 className="text-xl font-bold text-slate-800">CV Editor</h2>
+                        <div className="flex gap-2">
+                            <button className="bg-slate-200 text-slate-800 px-3 py-2 rounded-lg flex items-center gap-1 text-xs font-bold shadow-sm" onClick={handlePrint}>
+                                <Printer size={14} /> Print
+                            </button>
+                            <button className="bg-slate-900 text-white px-3 py-2 rounded-lg flex items-center gap-1 text-xs font-bold shadow-lg" onClick={handleDownloadPDF}>
+                                <Download size={14} /> Download
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Template Switcher Widget */}
+                    <div className="p-5 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl border border-slate-200 shadow-sm">
+                        <h3 className="text-sm font-bold text-slate-800 mb-4 flex items-center gap-2"><Palette size={16} className="text-slate-500" /> Select Your Template</h3>
+                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+                            {Object.values(THEMES).map(t => (
+                                <button
+                                    key={t.id}
+                                    onClick={() => setActiveTheme(t.id)}
+                                    className={`flex flex-col items-center p-2 rounded-xl border-2 transition-all group w-full bg-white hover:shadow-md ${activeTheme === t.id ? 'border-blue-500 shadow-md scale-[1.02]' : 'border-slate-200 hover:border-slate-300'}`}
+                                >
+                                    <div className="w-full h-20 bg-slate-50 rounded border border-slate-200 overflow-hidden flex items-start justify-center relative mb-2">
+                                        <div className="w-[80%] h-full bg-white rounded-t shadow-sm border border-slate-200 relative mt-2 flex flex-col overflow-hidden">
+                                             <div className={`h-5 w-full bg-gradient-to-r ${t.headerBg}`}></div>
+                                             <div className="p-1.5 space-y-1">
+                                                 <div className="w-1/2 h-1 bg-slate-200 rounded"></div>
+                                                 <div className="w-1/3 h-1 bg-slate-200 rounded"></div>
+                                                 <div className="w-full h-4 bg-slate-50 border border-slate-100 rounded mt-2"></div>
+                                             </div>
+                                        </div>
+                                    </div>
+                                    <span className="text-[11px] font-bold text-slate-700 w-full text-center leading-tight">{t.name}</span>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Personal Info Form */}
+                    <div className="space-y-4">
+                        <h3 className="text-lg font-semibold flex items-center gap-2 text-slate-800 border-b pb-2"><Edit2 size={16} className="text-slate-400" /> Personal Details</h3>
+                        <div className="grid grid-cols-1 gap-y-4">
+                            <div className="flex items-center gap-4 border p-3 rounded-lg bg-slate-50 border-slate-200 shadow-sm">
+                                <div className="w-16 h-16 bg-slate-200 rounded-md overflow-hidden flex items-center justify-center border border-slate-300">
+                                    {cvState.photo ? <img src={cvState.photo} alt="Preview" className="w-full h-full object-cover" /> : <span className="text-[10px] text-slate-500 font-medium">No Photo</span>}
+                                </div>
+                                <div className="flex-1">
+                                    <label className="text-sm font-semibold text-slate-700 block mb-1">Profile Photo</label>
+                                    <input type="file" accept="image/*" onChange={handlePhotoUpload} className="text-xs text-slate-500 file:mr-4 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition-all cursor-pointer w-full" />
+                                </div>
+                            </div>
+                            <InputGroup label="Full Name">
+                                <input type="text" name="name" value={cvState.name} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm" />
+                            </InputGroup>
+                            <InputGroup label="Job Title / Role">
+                                <input type="text" name="role" value={cvState.role || ''} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm" />
+                            </InputGroup>
+                            <div className="grid grid-cols-2 gap-4">
+                                <InputGroup label="Email">
+                                    <input type="email" name="email" value={cvState.contact?.email || ''} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm shadow-sm" />
+                                </InputGroup>
+                                <InputGroup label="Phone">
+                                    <input type="tel" name="phone" value={cvState.contact?.phone || ''} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm shadow-sm" />
+                                </InputGroup>
+                            </div>
+                            <InputGroup label="Location">
+                                <input type="text" name="location" value={cvState.contact?.location || ''} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm shadow-sm" />
+                            </InputGroup>
+                            <div className="grid grid-cols-2 gap-4">
+                                <InputGroup label="LinkedIn URL">
+                                    <input type="text" name="linkedin" value={cvState.contact?.linkedin || ''} onChange={handlePersonalChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm shadow-sm" />
+                                </InputGroup>
+                                <InputGroup label="GitHub URL">
+                                    <input type="text" name="portfolio" value={cvState.contact?.portfolio || ''} onChange={handlePersonalChange} placeholder="e.g. github.com/username" className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm shadow-sm" />
+                                </InputGroup>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Professional Summary Form */}
+                    <div className="space-y-4">
+                        <div className="flex items-center justify-between border-b pb-2">
+                            <h3 className="text-lg font-semibold flex items-center gap-2 text-slate-800"><Briefcase size={16} className="text-slate-400" /> Summary</h3>
+                            <button className="text-xs bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-3 py-1.5 rounded-full font-medium shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 opacity-50 cursor-not-allowed">
+                                <Sparkles size={12} /> AI Enhance
+                            </button>
+                        </div>
+                        <InputGroup label="Write a brief professional summary">
+                            <textarea rows={5} name="summary" value={cvState.summary || ''} onChange={handleSummaryChange} className="w-full px-4 py-2 bg-white border border-slate-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm resize-y leading-relaxed" />
+                        </InputGroup>
+                    </div>
+
+                    {/* Education Form Component */}
+                    <div className="space-y-4">
+                        <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+                            <h3 className="text-lg font-bold flex items-center gap-2 text-slate-800">🎓 Education</h3>
+                            <button
+                                onClick={() => addArrayItem('education', { institution: '', degree: '', startDate: '', endDate: '' })}
+                                className="text-xs border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-1.5 rounded-full font-bold transition-all flex items-center gap-1 shadow-sm"
+                            >
+                                + Add Degree
+                            </button>
+                        </div>
+
+                        <div className="space-y-4">
+                            {(cvState.education || []).map((edu, idx) => (
+                                <div key={idx} className="p-5 bg-white border border-slate-200 rounded-xl shadow-sm relative group hover:border-blue-300 transition-all">
+                                    <button onClick={() => removeArrayItem('education', idx)} className="absolute top-4 right-4 p-1.5 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors">
+                                        <Trash2 size={18} />
+                                    </button>
+                                    <div className="space-y-4 pt-2">
+                                        <InputGroup label="Institution / University">
+                                            <input type="text" value={edu.institution} onChange={(e) => handleArrayItemChange('education', idx, 'institution', e.target.value)} className="w-full px-3 py-2 bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
+                                        </InputGroup>
+                                        <InputGroup label="Degree / Certificate">
+                                            <input type="text" value={edu.degree} onChange={(e) => handleArrayItemChange('education', idx, 'degree', e.target.value)} className="w-full px-3 py-2 bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
+                                        </InputGroup>
+                                        <div className="grid grid-cols-2 gap-3">
+                                            <InputGroup label="Start Date">
+                                                <input type="text" placeholder="e.g. Sep 2018" value={edu.startDate} onChange={(e) => handleArrayItemChange('education', idx, 'startDate', e.target.value)} className="w-full px-3 py-2 bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
+                                            </InputGroup>
+                                            <InputGroup label="End Date">
+                                                <input type="text" placeholder="e.g. May 2022" value={edu.endDate} onChange={(e) => handleArrayItemChange('education', idx, 'endDate', e.target.value)} className="w-full px-3 py-2 bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
+                                            </InputGroup>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Work Experience Form Component */}
+                    <div className="space-y-4">
+                        <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+                            <h3 className="text-lg font-bold flex items-center gap-2 text-slate-800">💼 Work Experience</h3>
+                            <button
+                                onClick={() => addArrayItem('experience', { company: '', role: '', startDate: '', endDate: '', responsibilities: '' })}
+                                className="text-xs border border-blue-500 text-blue-600 hover:bg-blue-50 px-4 py-1.5 rounded-full font-bold transition-all flex items-center gap-1 shadow-sm"
+                            >
+                                + Add Job
+                            </button>
+                        </div>
+
+                        <div className="space-y-4">
+                            {(cvState.experience || []).map((exp, idx) => (
+                                <div key={idx} className="p-5 bg-white border border-slate-200 rounded-xl relative shadow-sm group hover:border-blue-300 transition-all">
+                                    <button onClick={() => removeArrayItem('experience', idx)} className="absolute top-4 right-4 p-1.5 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors">
+                                        <Trash2 size={18} />
+                                    </button>
+                                    <div className="space-y-4 pt-2">
+                                        <InputGroup label="Company Name">
+                                            <input type="text" value={exp.company} onChange={(e) => handleArrayItemChange('experience', idx, 'company', e.target.value)} className="w-full px-3 py-2 bg-white shadow-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
+                                        </InputGroup>
+                                        <InputGroup label="Role / Title">
+                                            <input type="text" value={exp.role} onChange={(e) => handleArrayItemChange('experience', idx, 'role', e.target.value)} className="w-full px-3 py-2 bg-white shadow-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
+                                        </InputGroup>
+                                        <div className="grid grid-cols-2 gap-3">
+                                            <InputGroup label="Start Date">
+                                                <input type="text" placeholder="e.g. Jan 2021" value={exp.startDate} onChange={(e) => handleArrayItemChange('experience', idx, 'startDate', e.target.value)} className="w-full px-3 py-2 bg-white shadow-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
+                                            </InputGroup>
+                                            <InputGroup label="End Date">
+                                                <input type="text" placeholder="e.g. Present" value={exp.endDate} onChange={(e) => handleArrayItemChange('experience', idx, 'endDate', e.target.value)} className="w-full px-3 py-2 bg-white shadow-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" />
+                                            </InputGroup>
+                                        </div>
+                                        <InputGroup label="Responsibilities & Achievements">
+                                            <div className="relative">
+                                                <textarea rows={5} placeholder="• List your key achievements..." value={exp.responsibilities} onChange={(e) => handleArrayItemChange('experience', idx, 'responsibilities', e.target.value)} className="w-full px-3 py-2 bg-white shadow-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm resize-y leading-relaxed" />
+                                                <button className="absolute bottom-2 right-4 text-xs bg-white border border-slate-200 text-blue-600 px-2 py-1 rounded shadow-sm font-medium hover:bg-blue-50 transition-colors flex items-center gap-1 opacity-50 cursor-not-allowed">
+                                                    <Sparkles size={12} /> AI Rewrite
+                                                </button>
+                                            </div>
+                                        </InputGroup>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Additional Details Forms */}
+                    <div className="space-y-6 pt-4 border-t border-slate-200">
+                        <h3 className="text-lg font-semibold flex items-center gap-2 text-slate-800"><List size={16} className="text-slate-400" /> Additional Details</h3>
+
+                        {/* Skills Form */}
+                        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <div className="flex items-center justify-between mb-3">
+                                <label className="text-sm font-semibold text-slate-700">Skills</label>
+                                <button onClick={() => addArrayItem('skills', { category: '' })} className="p-1 hover:bg-slate-200 rounded text-slate-500 transition-colors"><Plus size={16} /></button>
+                            </div>
+                            <div className="space-y-2">
+                                {(cvState.skills || []).map((skill, idx) => (
+                                    <div key={idx} className="flex gap-2 relative group">
+                                        <input type="text" placeholder="e.g. React.js, Sales, Leadership..." value={typeof skill === 'string' ? skill : (skill.category || skill.items?.[0] || '')} onChange={(e) => handleArrayItemChange('skills', idx, 'category', e.target.value)} className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                                        <button onClick={() => removeArrayItem('skills', idx)} className="text-slate-400 hover:text-red-500 px-2"><Trash2 size={16} /></button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Certifications Form */}
+                        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <div className="flex items-center justify-between mb-3">
+                                <label className="text-sm font-semibold text-slate-700">Certifications</label>
+                                <button onClick={() => addArrayItem('certifications', { name: '' })} className="p-1 hover:bg-slate-200 rounded text-slate-500 transition-colors"><Plus size={16} /></button>
+                            </div>
+                            <div className="space-y-2">
+                                {(cvState.certifications || []).map((cert, idx) => (
+                                    <div key={idx} className="flex gap-2 relative group">
+                                        <input type="text" placeholder="e.g. AWS Certified Developer" value={typeof cert === 'string' ? cert : cert.name} onChange={(e) => handleArrayItemChange('certifications', idx, 'name', e.target.value)} className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                                        <button onClick={() => removeArrayItem('certifications', idx)} className="text-slate-400 hover:text-red-500 px-2"><Trash2 size={16} /></button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Languages Form */}
+                        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <div className="flex items-center justify-between mb-3">
+                                <label className="text-sm font-semibold text-slate-700">Languages</label>
+                                <button onClick={() => addArrayItem('languages', '')} className="p-1 hover:bg-slate-200 rounded text-slate-500 transition-colors"><Plus size={16} /></button>
+                            </div>
+                            <div className="space-y-2">
+                                {(cvState.languages || []).map((lang, idx) => (
+                                    <div key={idx} className="flex gap-2 relative group">
+                                        <input type="text" placeholder="e.g. English - Native" value={typeof lang === 'string' ? lang : lang.name} onChange={(e) => handleArrayItemChange('languages', idx, 'name', e.target.value)} className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                                        <button onClick={() => removeArrayItem('languages', idx)} className="text-slate-400 hover:text-red-500 px-2"><Trash2 size={16} /></button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Hobbies Form */}
+                        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <div className="flex items-center justify-between mb-3">
+                                <label className="text-sm font-semibold text-slate-700">Hobbies</label>
+                                <button onClick={() => addArrayItem('hobbies', '')} className="p-1 hover:bg-slate-200 rounded text-slate-500 transition-colors"><Plus size={16} /></button>
+                            </div>
+                            <div className="space-y-2">
+                                {(cvState.hobbies || []).map((hobby, idx) => (
+                                    <div key={idx} className="flex gap-2 relative group">
+                                        <input type="text" placeholder="e.g. Photography, Hiking..." value={typeof hobby === 'string' ? hobby : hobby.name} onChange={(e) => handleArrayItemChange('hobbies', idx, 'name', e.target.value)} className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500" />
+                                        <button onClick={() => removeArrayItem('hobbies', idx)} className="text-slate-400 hover:text-red-500 px-2"><Trash2 size={16} /></button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </aside>
+
+            {/* --- RIGHT PANE: LIVE PREVIEW --- */}
+            <main className={`${activeTab === 'preview' ? 'flex' : 'hidden'} md:flex flex-1 h-full bg-slate-200 overflow-y-auto p-4 sm:p-8 justify-center items-start print:block print:p-0 print:bg-white print:overflow-visible`}>
+                {/* The A4 Document Container */}
+                <div className="print-resume-container w-full max-w-[800px] shadow-2xl origin-top transition-all duration-300 print:shadow-none print:max-w-none print:w-[210mm] print:min-h-[297mm] overflow-x-auto print:overflow-visible">
+                    <div className="min-w-[600px] md:min-w-0 shadow-[0_0_15px_rgba(0,0,0,0.1)] bg-white">
+                        {theme.layout === 'modernMinimal' && <ModernMinimalDocument data={cvState} theme={theme} />}
+                        {theme.layout === 'corporate' && <CorporateDocument data={cvState} theme={theme} />}
+                        {theme.layout === 'darkHeader' && <DarkHeaderDocument data={cvState} theme={theme} />}
+                        {theme.layout === 'elegant' && <ElegantDocument data={cvState} theme={theme} />}
+                        {(!theme.layout || theme.layout === 'classic') && <ClassicDocument data={cvState} theme={theme} />}
+                    </div>
+                </div>
+            </main>
+
+            {/* Floating Buttons for Mobile (Preview Tab Only) */}
+            {activeTab === 'preview' && (
+                <div className="md:hidden no-print fixed bottom-6 right-6 flex flex-col gap-3 z-[60]">
+                    <button
+                        onClick={handlePrint}
+                        className="w-14 h-14 bg-white text-slate-900 border border-slate-200 rounded-full flex items-center justify-center shadow-lg transition-transform active:scale-95"
+                    >
+                        <Printer size={24} />
+                    </button>
+                    <button
+                        onClick={handleDownloadPDF}
+                        className="w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl animate-bounce"
+                    >
+                        <Download size={24} />
+                    </button>
+                </div>
+            )}
+        </div>
+    );
 }
 
 export default CVBuilder;
